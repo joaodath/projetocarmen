@@ -42,3 +42,5 @@ class Personagem():
 
     def decrease_budget(self, value):
         self.__budget -= value
+
+#esse arquivo foi editado por ana
