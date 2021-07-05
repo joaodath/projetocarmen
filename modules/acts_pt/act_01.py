@@ -5,10 +5,14 @@ def act_one():
 
 
 def building():
-    choice = input('''Invadir pelo último andar ou térreo?
+    choice = int(input('''Invadir pelo último andar ou térreo?
     [1] Último Andar
-    [2] Térreo''')
-    if choice == 'Último Andar':
+    [2] Térreo'''))
+    while choice not in [1, 2]:
+        choice = int(input('''Não entendi. Invadir pelo último andar ou térreo?
+        [1] Último Andar
+        [2] Térreo'''))
+    if choice == 1:
         return top_building()
     else:
         return bottom_building()
@@ -23,10 +27,14 @@ def bottom_building():
 
 
 def vile_vault():
-    choice = input('''Resgatar equipe ou roubar um guerreiro?
-    [1] Regatar equipe
-    [2] Roubar um Guerreiro''')
-    if choice == 'Resgatar equipe':
+    choice = int(input('''Resgatar equipe ou roubar um guerreiro?
+    [1] Resgatar equipe
+    [2] Roubar um Guerreiro'''))
+    while choice not in [1, 2]:
+        choice = int(input('''Não entendi. Resgatar equipe ou roubar um guerreiro?
+        [1] Resgatar equipe
+        [2] Roubar um Guerreiro'''))
+    if choice == 1:
         return rescue_team_vile_vault()
     else:
         return steal_statue()
