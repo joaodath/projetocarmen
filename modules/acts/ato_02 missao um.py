@@ -1,11 +1,11 @@
 def act_two_mission_one():
     
-    def dancar():
-        choice = input('Você irá dançar ou recusar a dança?')   
-        if choice == 'Dançar': #merge próximo ramo? ver mapa
-            return dancar()
-        else:
-            return recusar_danca()
+def dancar():
+    choice = input('Você irá dançar ou recusar a dança?')   
+    if choice == 'Dançar': #merge próximo ramo? ver mapa
+        return dancar()
+    else:
+        return recusar_danca()
 
 
 def recusar_danca():
@@ -28,6 +28,3 @@ def resgatar_equipe():
 
 def proxima_missao():
     return 2
-
-
-
