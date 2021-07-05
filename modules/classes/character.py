@@ -1,17 +1,17 @@
-class Personagem():
-    def __init__(self, name):
-        self.__name = name
+class Character():
+    def __init__(self, name1 = 'Carmen Sandiego'):
+        self.__name_character = name1
         self.__energy = 3
         self.__hunger = False
         self.__budget = 3
 
     @property
-    def name(self):
-        return self.__name
+    def naming(self):
+        return self.__name_character
 
-    @name.setter
-    def name(self, name):
-        self.__name = name
+    @naming.setter
+    def naming(self, name):
+        self.__name_character = name
 
     @property
     def energy(self):
@@ -42,5 +42,3 @@ class Personagem():
 
     def decrease_budget(self, value):
         self.__budget -= value
-
-#esse arquivo foi editado por ana
