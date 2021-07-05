@@ -1,4 +1,4 @@
-from modules.acts.bad_endings_pt import bad_ending_1, bad_ending_2
+from modules.acts_pt.bad_endings import bad_ending_1, bad_ending_2
 
 def act_one():
     return building()

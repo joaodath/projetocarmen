@@ -5,6 +5,9 @@
 # from modules.acts.ato_01 import act_one
 
 
+# from modules.acts_pt.act_01 import choice_of_mission
+
+
 print('''
 Hi! Welcome to "Carmen Sandiego: to steal or not to steal.
 Please, select your language below:
@@ -42,6 +45,12 @@ player = build_character.create_character()
 #Game starts with Act One
 calling = act_01.act_one()
 if calling == 'act_two':
-    act_02.act_two() #Calls Act Two
-else:
-    print('Oops, there was a problem!')
+   choose_mission = act_01.choice_of_mission()
+    if choose_mission == 1 and language == 2:
+        from modules.acts_pt import act_02_mission_01
+        act_02_mission_02.act_two_mission_two()
+    elif choose_mission == 2 and language == 2:
+        from modules.acts_pt import act_02_mission_02
+        act_02_mission_01.act_two_mission_one()
+    else:
+        print('Oops, there was a problem!')

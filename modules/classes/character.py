@@ -10,8 +10,8 @@ class Character():
         return self.__name_character
 
     @naming.setter
-    def naming(self, name):
-        self.__name_character = name
+    def naming(self, name2):
+        self.__name_character = name2
 
     @property
     def energy(self):

@@ -58,3 +58,16 @@ def jump_statue():
 
 def hide_statue():
     return 'act_two'
+
+def choice_of_mission():
+    print('''
+    Agora você pode escolher entre a missão da Dra. Bellum ou a missão da Condessa Cleo.
+    Na missão da Dra. Bellum, você irá explorar o passado do planeta.
+    Na missão da Condessa Cleo, você irá para uma festa onde poderá cruzar com ricos e famosos!''')
+    choice = int(input('''
+    Faça sua escolha:
+    [1] Missão 1 - Dra Bellum.
+    [2] Missão 2 - Condessa Cleo.
+    
+    Digite sua escolha: '''))
+    return choice
