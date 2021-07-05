@@ -1,17 +1,22 @@
 def act_two_mission_two():
+    return roubar_osso()
 
-    def roubar_osso():
-        choice = input('Você irá se esconder da ACME ou fugir com o osso?')   
-        if choice == 'Se esconder':
-            print('A ACME levou o osso para um cofre seguro.')
-        return 1
+def roubar_osso():
+    choice = input('Você irá se esconder da ACME ou fugir com o osso?')   
+    if choice == 'Esconder':
+        return esconder_da_acme()
+    else:
+        return fugir_com_osso()
 
 def fugir_com_osso():
     return cofre_da_vile()
 
+def esconder_da_acme():
+    return bad_ending()
+
 def cofre_da_vile():
     choice = input('Resgatar equipe ou roubar mais uma vez?')
-    if choice == 'Resgatar equipe':
+    if choice == 'Resgatar':
         return resgatar_equipe()
     else:
         return roubar_mais_uma_vez()
@@ -20,12 +25,12 @@ def cofre_da_vile():
 
 def resgatar_equipe():
     print('Você conseguiu resgatar sua equipe! Parabéns!!!')
-    #fim de jogo
+    return happy_ending()
 
 
 def roubar_mais_uma_vez():
     print('É uma emboscada.V.I.L.E conseguiu te capturar')
-    return 1
+    return bad_ending()
 
 
 
