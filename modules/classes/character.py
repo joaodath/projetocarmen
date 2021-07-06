@@ -9,6 +9,14 @@ def check_input(text, options):
     return choice
 
 
+def print_slow(str):
+    from time import sleep
+    from os import sys 
+    for letter in str:
+        sys.stdout.write(letter)
+        sys.stdout.flush()
+        sleep(0.07)
+
 class Character():
     def __init__(self, language, name='Carmen Sandiego'):
         self.__name = name
