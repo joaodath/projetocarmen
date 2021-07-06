@@ -1,6 +1,6 @@
 #Esqueleto do Arquivo Main
 #O main deve rodar imports com base na necessidade do usuário durante o jogo.
-
+from classes.character import Character, check_input
 if __name__ == '__main__':
     text = '''
     Informe o idioma que deseja para prosseguir:
@@ -28,3 +28,4 @@ if __name__ == '__main__':
         player = Character(language=2)
         player.create_character()
         act_1.start()
+

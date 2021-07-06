@@ -49,21 +49,12 @@ class Character():
     Por favor, digite o nome da sua personagem: ''').strip().title()
 
     @property
-<<<<<<< HEAD
-    def naming(self):
-        return self.__name_character
-
-    @naming.setter
-    def naming(self, name2):
-        self.__name_character = name2
-=======
     def name(self):
         return self.__name
 
     @name.setter
     def name(self, name):
         self.__name = name
->>>>>>> aab25ff24d23f270d6fd0760bd0b4a688fc08afb
 
     @property
     def energy(self):
