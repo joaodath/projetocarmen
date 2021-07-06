@@ -1,17 +1,60 @@
+
+def check_input(text, options):
+    choice = int(input(text))
+
+    while choice not in options:
+        print('Não entendi. Tente novamente.\n')
+        choice = int(input(text))
+
+    return choice
+
+
 class Character():
-    def __init__(self, name='Carmen Sandiego'):
+    def __init__(self, language, name='Carmen Sandiego'):
         self.__name = name
         self.__energy = 3
         self.__hunger = False
         self.__budget = 3
+        self.language = language
+
+    def create_character(self):
+        if self.language == 2:
+            text = '''
+    Sua personagem é Carmen Sandiego.
+    Você quer alterar o nome da sua personagem?
+    
+    [1] Sim
+    [2] Não
+    
+    Digite sua opção: '''
+
+            if check_input(text, [1, 2]) == 1:
+                self.__name = input(
+                    '''
+    Por favor, digite o nome da sua personagem: ''').strip().title()
+
+        else:
+            text = '''
+    Your character name is Carmen Sandiego.
+    Você quer alterar o nome da sua personagem?
+
+    [1] Sim
+    [2] Não
+
+    Digite sua opção: '''
+
+            if check_input(text, [1, 2]) == 1:
+                self.__name = input(
+                    '''
+    Por favor, digite o nome da sua personagem: ''').strip().title()
 
     @property
     def name(self):
-        return self.name
+        return self.__name
 
     @name.setter
     def name(self, name):
-        self.name = name
+        self.__name = name
 
     @property
     def energy(self):
