@@ -1,8 +1,8 @@
 # Esqueleto do Arquivo Main
 # O main deve rodar imports com base na necessidade do usuário durante o jogo.
 
-from classes.character import Character 
-from classes.extras import print_slow, check_input, clear_screen
+from modules.classes.character import Character 
+from modules.extras import print_slow, check_input, clear_screen
 from time import sleep
 
 if __name__ == '__main__':

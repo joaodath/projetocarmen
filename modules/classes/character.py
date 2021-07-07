@@ -1,4 +1,4 @@
-from extras import print_slow, check_input, check_input_en
+from modules.extras import check_input, check_input_en
 
 #Character class
 class Character():
@@ -80,9 +80,13 @@ class Character():
         self.__budget -= value
     
     @property
+    def help_tigress(self):
+        self.__help_tigress
+    
+    @help_tigress.setter
     def help_tigress(self, value):
         if value == 0:
-            self.__help_tigress = False
+            self.__help_tigress = bool(False)
         elif value == 1:
-            self.__help_tigress = True
+            self.__help_tigress = bool(True)
         
