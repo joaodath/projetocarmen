@@ -4,15 +4,33 @@
 from modules.classes.character import Character 
 from modules.extras import print_slow, check_input, clear_screen
 from time import sleep
+from emojis import emojis
+# emojis.encode() inside print can add emojis from cheat_sheet using ::format::
+# Needs to check how to deal with copyrights for including directly inside our 
+# project
+# https://pypi.org/project/emojis/
+# https://www.webfx.com/tools/emoji-cheat-sheet/
 
 if __name__ == '__main__':
     clear_screen()
+    print_slow('''
+    
+    Welcome to "Carmen Sandiego: to steal or not to steal"!
+    We're starting the game soon!
+    First, we need to know your language preference.
+    
+    Bem vinde a "Carmen Sandiego: roubar ou não roubar, eis a questão".
+    Vamos começar o jogo já, já!
+    Primeiro, precisamos saber seu idioma de preferência. 
+    ''')
     text = '''
+    Inform the language you want:
     Informe o idioma que deseja para prosseguir:
 
-    [1] Inglês
-    [2] Português
+    [1] English / Inglês
+    [2] Português / Portuguese
 
+    Type your choice.
     Sua Escolha: '''
 
     if check_input(text, [1, 2]) == 1:
