@@ -1,13 +1,15 @@
 from modules.acts_pt import endings
-from modules.classes.character import print_slow, check_input
+from modules.extras import print_slow, check_input, clear_screen
 from time import sleep
 
-def start():
+def start(player):
+    clear_screen()
     sleep(1)
-    return party()
+    return party(player)
 
 
-def party():
+def party(player):
+    clear_screen()
     #Storytelling
     print_slow('''
     Após a missão em Xangai, Carmen recebe uma ligação da V.I.L.E 
@@ -37,23 +39,26 @@ def party():
 
     if check_input(text, [1, 2]) == 1:
         sleep(1)
-        return dance()
+        return dance(player)
     else:
         sleep(1)
-        return refuse_dance()
+        return refuse_dance(player)
 
 
-def dance():
+def dance(player):
+    clear_screen()
     sleep(1)
-    return steel_caviare()
+    return steel_caviare(player)
 
 
-def refuse_dance():
+def refuse_dance(player):
+    clear_screen()
     sleep(1)
-    return steel_caviare()
+    return steel_caviare(player)
 
 
-def steel_caviare():
+def steel_caviare(player):
+    clear_screen()
     #Storytelling
     print_slow('''
     Carmen observa dois garçons indo para a cozinha
@@ -74,23 +79,26 @@ def steel_caviare():
 
     if check_input(text, [1, 2]) == 1:
         sleep(1)
-        return hide()
+        return hide(player)
     else:
         sleep(1)
-        return run()
+        return run(player)
 
 
-def hide():
+def hide(player):
+    clear_screen()
     sleep(1)
-    return endings.bad_ending_5()
+    return endings.bad_ending_5(player)
 
 
-def run():
+def run(player):
+    clear_screen()
     sleep(1)
-    return vile_safebox()
+    return vile_safebox(player)
 
 
-def vile_safebox():
+def vile_safebox(player):
+    clear_screen()
     #Storytelling
     print_slow('''
     Carmen sai da cozinha com o caviar
@@ -118,17 +126,19 @@ def vile_safebox():
     '''
     if check_input(text, [1, 2]) == 1:
         sleep(1)
-        return rescue_team()
+        return rescue_team(player)
     else:
         sleep(1)
-        return steel_again()
+        return steel_again(player)
 
 
-def rescue_team():
+def rescue_team(player):
+    clear_screen()
     sleep(1)
-    return endings.good_ending_1()
+    return endings.good_ending_1(player)
 
 
-def steel_again():
+def steel_again(player):
+    clear_screen()
     sleep(1)
-    return endings.bad_ending_4()
+    return endings.bad_ending_4(player)

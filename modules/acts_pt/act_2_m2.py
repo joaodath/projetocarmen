@@ -1,13 +1,15 @@
 from modules.acts_pt import endings
-from modules.classes.character import print_slow, check_input
+from modules.extras import print_slow, check_input, clear_screen
 from time import sleep
 
 #Starts Act 02 from Mission 02
-def start():
-    return in_the_lab()
+def start(player):
+    clear_screen()
+    return in_the_lab(player)
 
 
-def in_the_lab():
+def in_the_lab(player):
+    clear_screen()
     #Storytelling
     print_slow('''Storytelling aqui''')
     text = '''
@@ -19,20 +21,23 @@ def in_the_lab():
     Sua escolha: '''
 
     if check_input(text, [1, 2]) == 1:
-        return hide()
+        return hide(player)
     else:
-        return run()
+        return run(player)
 
 
-def hide():
-    return endings.bad_ending_3()
+def hide(player):
+    clear_screen()
+    return endings.bad_ending_3(player)
 
 
-def run():
-    return vile_safebox()
+def run(player):
+    clear_screen()
+    return vile_safebox(player)
 
 
-def vile_safebox():
+def vile_safebox(player):
+    clear_screen()
     #Storytelling
     print_slow('''Storytelling aqui''')
     text = '''
@@ -43,14 +48,16 @@ def vile_safebox():
 
     '''
     if check_input(text, [1, 2]) == 1:
-        return rescue_team()
+        return rescue_team(player)
     else:
-        return steel_again()
+        return steel_again(player)
 
 
-def rescue_team():
-    return endings.good_ending_1()
+def rescue_team(player):
+    clear_screen()
+    return endings.good_ending_1(player)
 
 
 def steel_again():
-    return endings.bad_ending_4()
+    clear_screen()
+    return endings.bad_ending_4(player)

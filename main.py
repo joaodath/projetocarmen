@@ -1,10 +1,12 @@
 # Esqueleto do Arquivo Main
 # O main deve rodar imports com base na necessidade do usuário durante o jogo.
 
-from modules.classes.character import Character, print_slow, check_input
+from classes.character import Character 
+from classes.extras import print_slow, check_input, clear_screen
 from time import sleep
 
 if __name__ == '__main__':
+    clear_screen()
     text = '''
     Informe o idioma que deseja para prosseguir:
 
@@ -15,7 +17,7 @@ if __name__ == '__main__':
 
     if check_input(text, [1, 2]) == 1:
         from modules.acts_en import act_1
-
+        clear_screen()
         print_slow('''
         Hi! Welcome to "Carmen Sandiego: to steal or not to steal".
         Let\'s start our game! \n ''')
@@ -25,7 +27,7 @@ if __name__ == '__main__':
         
     else:
         from modules.acts_pt import act_1
-
+        clear_screen()
         print_slow('''
         Oi! Bem vinde a "Carmen Sandiego: roubar ou não roubar, eis a questão".
         Vamos iniciar nosso jogo! \n ''')

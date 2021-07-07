@@ -1,48 +1,17 @@
-#This function gets the string,splits and print it letter by letter using
-#the sleep function from time library as the speedometer
-def print_slow(str):
-    from time import sleep
-    from os import sys 
-    for letter in str:
-        sys.stdout.write(letter)
-        sys.stdout.flush()
-        sleep(0.07)
-
-#This function checks if the answer is between the values that the system
-#is waiting for. If not, returns a warning in portuguese and waits for 
-#the new answer.
-def check_input(text, options):
-    choice = int(input(text))
-
-    while choice not in options:
-        print_slow('Não entendi. Tente novamente.\n')
-        choice = int(input(text))
-
-    return choice
-
-#This function checks if the answer is between the values that the system
-#is waiting for. If not, returns a warning in english and waits for 
-#the new answer.
-def check_input_en(text, options):
-    choice = int(input(text))
-
-    while choice not in options:
-        print_slow('I could\'nt understand. Try again.\n')
-        choice = int(input(text))
-
-    return choice
+from extras import print_slow, check_input, check_input_en
 
 #Character class
 class Character():
-    def __init__(self, language = 2, name='Carmen Sandiego'):
+    def __init__(self, language = 2, name='Carmen Sandiego', help_tigress = False):
         self.__name = name
         self.__energy = 3
         self.__hunger = False
         self.__budget = 3
-        self.language = language
+        self.__language = language
+        self.__help_tigress = help_tigress
 
     def create_character(self):
-        if self.language == 2:
+        if self.__language == 2:
             text = '''
     Sua personagem é Carmen Sandiego.
     Você quer alterar o nome da sua personagem?
@@ -109,3 +78,11 @@ class Character():
 
     def decrease_budget(self, value):
         self.__budget -= value
+    
+    @property
+    def help_tigress(self, value):
+        if value == 0:
+            self.__help_tigress = False
+        elif value == 1:
+            self.__help_tigress = True
+        
