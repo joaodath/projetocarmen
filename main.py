@@ -4,12 +4,6 @@
 from modules.classes.character import Character 
 from modules.extras import print_slow, check_input, clear_screen
 from time import sleep
-from emojis import emojis
-# emojis.encode() inside print can add emojis from cheat_sheet using ::format::
-# Needs to check how to deal with copyrights for including directly inside our 
-# project
-# https://pypi.org/project/emojis/
-# https://www.webfx.com/tools/emoji-cheat-sheet/
 
 if __name__ == '__main__':
     clear_screen()
