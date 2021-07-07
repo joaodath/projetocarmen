@@ -1,12 +1,13 @@
 from modules.extras import check_input, check_input_en
 
-#Character class
+# Character class
+
+
 class Character():
-    def __init__(self, language = 2, name='Carmen Sandiego', help_tigress = False):
+    def __init__(self, language=2, name='Carmen Sandiego', help_tigress=False):
         self.__name = name
         self.__energy = 3
-        self.__hunger = False
-        self.__budget = 3
+        self.__persuasao = 3
         self.__language = language
         self.__help_tigress = help_tigress
 
@@ -78,15 +79,14 @@ class Character():
 
     def decrease_budget(self, value):
         self.__budget -= value
-    
+
     @property
     def help_tigress(self):
         self.__help_tigress
-    
+
     @help_tigress.setter
     def help_tigress(self, value):
         if value == 0:
             self.__help_tigress = bool(False)
         elif value == 1:
             self.__help_tigress = bool(True)
-        

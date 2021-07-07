@@ -2,6 +2,7 @@ from modules.acts_pt import endings
 from modules.extras import print_slow, check_input, clear_screen
 from time import sleep
 
+
 def start(player):
     clear_screen()
     sleep(1)
@@ -10,22 +11,27 @@ def start(player):
 
 def party(player):
     clear_screen()
-    #Storytelling
-    print_slow('''
-    Após a missão em Xangai, Carmen recebe uma ligação da V.I.L.E 
+    # Storytelling
+    print_slow(f'''
+    Após a missão em Xangai, {player.name} recebe uma ligação da V.I.L.E 
     
-    Carmen: Está bem condessa Cleo. O que seu coração sombrio deseja? 
+    {player.name}: Está bem condessa Cleo. O que seu coração sombrio deseja? 
     Condessa Cleo: Para minha missão, quero que roube o último lote de um caviar Beluga.
     Será servido numa festa de caridade em Mônaco.
     
     Player: Localizado na Riviera Francesa, Mônaco é o segundo menor país do mundo. 
     A festa será num luxuoso hotel em Monte Carlo.
 
-    Carmen: Vou me misturar, localizar as latas, e depois roubá-las.
+    Após uma longa viagem, {player.name} se encontra em Mônaco, no local propício para efetuar
+    o assalto. 
 
-    Anfitrião da Festa: Me daria a honra dessa dança, Srta Santa Rosa? 
+    {player.name}: Vou me misturar, localizar as latas, e depois roubá-las.
+
+    O Anfitrião da Festa se aproxima e faz a seguinte pergunta:
+
+    Anfitrião da Festa: Me daria a honra dessa dança? 
     
-    Carmen: Estou em missão, então deveria me concentrar e recusar. 
+    {player.name}: Estou em missão, então deveria me concentrar e recusar. 
     Mas aceitar a dança pode ser o melhor jeito de me misturar e chegar à cozinha.
     ''')
     text = '''
@@ -46,12 +52,22 @@ def party(player):
 
 
 def dance(player):
+    print_slow(f'''
+    {player.name} participa de uma bela dança com o Anfitrião da Festa.
+    Isso lhe ajuda a se misturar no local.
+    ''')
     clear_screen()
     sleep(1)
     return steel_caviare(player)
 
 
 def refuse_dance(player):
+    print_slow(f'''
+    {player.name} : Obrigado, mas valsa não é minha praia. Se quiser dançar
+    tango...
+
+    O Anfitrião se despede cordialmente e vai embora.
+    ''')
     clear_screen()
     sleep(1)
     return steel_caviare(player)
@@ -59,20 +75,22 @@ def refuse_dance(player):
 
 def steel_caviare(player):
     clear_screen()
-    #Storytelling
-    print_slow('''
-    Carmen observa dois garçons indo para a cozinha
+    # Storytelling
+    print_slow(f'''
+    Após o ocorrido, {player.name} observa dois garçons se dirigindo
+    à cozinha, observando o caviar logo em seguida.
     
-    Carmen: Avistei as ovas. 
+    {player.name}: Avistei as ovas. 
     
     Player: Como você vai pegar? 
     
-    Carmen: Posso esconder e sair furtivamente, ou pegar e sair correndo.     
+    {player.name}: Posso me disfarçar de garçom, pegar o caviar e sair furtivamente,
+    ou simplesmente pegar o caviar e sair correndo.     
     ''')
     text = '''
-    Você irá esconder o caviar ou roubar e correr?
+    Você irá se disfarçar para capturar o caviar ou roubar e correr?
     
-    [1] Disfarçar e Esconder
+    [1] Disfarçar e Capturar
     [2] Roubar e Correr
     
     Sua escolha: '''
@@ -87,41 +105,69 @@ def steel_caviare(player):
 
 def hide(player):
     clear_screen()
+    print_slow(f'''
+    {player.name} se disfarça como garçom para capturar os caviares. Entretanto um imprevisto acontece!
+    Como houve um tempo decorrido para o disfarce, os caviares já foram removidos de suas latas,
+    sendo servidos em pratos!
+    
+    {player.name} captura os caviares dos pratos e os põe em uma vasilha e foge furtivamente. Após
+    sair da festa, entra em contato com a Condessa Cleo.
+    
+    Carmen: O caviar está servido.
+
+    Condessa Cleo: Que grosseria! Fora das latas, deixou a iguaria exposta!
+
+    Carmen: Você queria ovas de peixe, eu entreguei.
+    
+    Condessa Cleo: Foi o que fez. Mas agora só vão durar um dia! E não posso consumir cem latas de
+    caviar em um dia. Dra Bellum, ative o... seja lá qual for o nome disso hoje!
+
+    Carmen: Não!
+    ''')
     sleep(1)
     return endings.bad_ending_5(player)
 
 
 def run(player):
     clear_screen()
+    print_slow(f'''
+    {player.name} invade a cozinha e sai com o caviar.
+
+    Anfitrião: Peguem-na!
+
+    {player.name} é encurralada pelos garçons e seguranças mas consegue escapar após
+    pega o caviar, abrir a porta lateral e saltar vôo com um equipamento.
+
+    Após pousar em segurança, {player.name} liga para a Condessa Cleo.
+
+    {player.name}: Peguei os bebês Belugas.
+
+    Condessa Cleo esboça um sorriso de satisfação.
+
+    Condessa Cleo: Ótimo! Por favor, aguarde novas instruções.
+    ''')
     sleep(1)
     return vile_safebox(player)
 
 
 def vile_safebox(player):
     clear_screen()
-    #Storytelling
-    print_slow('''
-    Carmen sai da cozinha com o caviar
+    # Storytelling
+    print_slow(f'''    
+    Player: Ao analisar as imagens do esconderijo onde estão Ivy e Zac, descobri a 
+    possibilidade de estarem localizados no Círculo Ártigo. Após fazer uma grande pesquisa
+    encontrei um esconderijo da V.I.L.E situado nessa região. Será que Ivy e Zac estão lá?
     
-    Anfitrião: Peguem-na! 
+    O que deseja fazer {player.name}? 
     
-    Carmen pega o caviar e salta vôo com um equipamento.
-
-    Carmen liga para Condessa Cleo
-    
-    Carmen: Peguei o caviar. 
-    Condessa Cleo: Aguarde novas instruções. 
-    
-    Player: Buscando esconderijos da V.I.L.E no Círculo Ártico, encontrei Ivy e Zac. 
-    O que quer fazer? 
-    
-    Carmen: Começo uma arriscada missão de resgate, ou roubo pela última vez?
-''')
+    {player.name}: Começo uma arriscada missão de resgate agora, ou roubo pela última vez encerrando o
+    acordo?
+    ''')
     text = '''
-    Você irá resgatar seus amigos agora ou roubar mais uma vez?
+    Você irá resgatar seus amigos agora ou ir para a última missão?
 
     [1] Resgatar Equipe
-    [2] Ir para próxima missão
+    [2] Ir para última missão
 
     '''
     if check_input(text, [1, 2]) == 1:
