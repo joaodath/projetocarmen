@@ -1,16 +1,40 @@
+#This function gets the string,splits and print it letter by letter using
+#the sleep function from time library as the speedometer
+def print_slow(str):
+    from time import sleep
+    from os import sys 
+    for letter in str:
+        sys.stdout.write(letter)
+        sys.stdout.flush()
+        sleep(0.07)
 
+#This function checks if the answer is between the values that the system
+#is waiting for. If not, returns a warning in portuguese and waits for 
+#the new answer.
 def check_input(text, options):
     choice = int(input(text))
 
     while choice not in options:
-        print('Não entendi. Tente novamente.\n')
+        print_slow('Não entendi. Tente novamente.\n')
         choice = int(input(text))
 
     return choice
 
+#This function checks if the answer is between the values that the system
+#is waiting for. If not, returns a warning in english and waits for 
+#the new answer.
+def check_input_en(text, options):
+    choice = int(input(text))
 
+    while choice not in options:
+        print_slow('I could\'nt understand. Try again.\n')
+        choice = int(input(text))
+
+    return choice
+
+#Character class
 class Character():
-    def __init__(self, language, name='Carmen Sandiego'):
+    def __init__(self, language = 2, name='Carmen Sandiego'):
         self.__name = name
         self.__energy = 3
         self.__hunger = False
