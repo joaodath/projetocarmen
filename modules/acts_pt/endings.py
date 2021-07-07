@@ -1,6 +1,9 @@
-from modules.classes.character import print_slow, check_input
+from modules.extras import print_slow, check_input
 from time import sleep
 
+#Bad Endings 01 and 02 are now deprecated. Maintaing only during building.
+#The entire Endings package must be deprecated.
+#Scheduled to be removed on first release
 def bad_ending_1():
     print_slow('''
     Final ruim 01: Ela tenta resgatar a equipe imediatamente mas a van está vazia. O jogo termina
