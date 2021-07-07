@@ -17,6 +17,7 @@ def start():
 
 def party():
     text = '''
+    
     Você deseja dançar ou prefere prosseguir?
 
     [1] Dançar
