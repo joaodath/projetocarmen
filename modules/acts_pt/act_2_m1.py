@@ -1,21 +1,15 @@
 from modules.acts_pt import endings
-
-
-def check_input(text, options):
-    choice = int(input(text))
-
-    while choice not in options:
-        print('Não entendi. Tente novamente.\n')
-        choice = int(input(text))
-
-    return choice
-
+from modules.classes.character import print_slow, check_input
+from time import sleep
 
 def start():
+    sleep(1)
     return party()
 
 
 def party():
+    #Storytelling
+    print_slow('''Storytelling aqui''')
     text = '''
     
     Você deseja dançar ou prefere prosseguir?
@@ -26,20 +20,26 @@ def party():
     Sua escolha: '''
 
     if check_input(text, [1, 2]) == 1:
+        sleep(1)
         return dance()
     else:
+        sleep(1)
         return refuse_dance()
 
 
 def dance():
+    sleep(1)
     return steel_caviare()
 
 
 def refuse_dance():
+    sleep(1)
     return steel_caviare()
 
 
 def steel_caviare():
+    #Storytelling
+    print_slow('''Storytelling aqui''')
     text = '''
     Você irá esconder o caviar ou roubar e correr?
     
@@ -49,20 +49,26 @@ def steel_caviare():
     Sua escolha: '''
 
     if check_input(text, [1, 2]) == 1:
+        sleep(1)
         return hide()
     else:
+        sleep(1)
         return run()
 
 
 def hide():
+    sleep(1)
     return endings.bad_ending_5()
 
 
 def run():
+    sleep(1)
     return vile_safebox()
 
 
 def vile_safebox():
+    #Storytelling
+    print_slow('''Storytelling aqui''')
     text = '''
     Você irá resgatar seus amigos agora ou roubar mais uma vez?
 
@@ -71,14 +77,18 @@ def vile_safebox():
 
     '''
     if check_input(text, [1, 2]) == 1:
+        sleep(1)
         return rescue_team()
     else:
+        sleep(1)
         return steel_again()
 
 
 def rescue_team():
+    sleep(1)
     return endings.good_ending_1()
 
 
 def steel_again():
+    sleep(1)
     return endings.bad_ending_4()
