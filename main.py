@@ -21,7 +21,7 @@ if __name__ == '__main__':
         Let\'s start our game! \n ''')
         sleep(1)
         player = Character(language=1)
-        act_1.start()
+        act_1.start(player)
         
     else:
         from modules.acts_pt import act_1
@@ -32,6 +32,4 @@ if __name__ == '__main__':
         sleep(1)
         player = Character(language=2)
         player.create_character()
-        act_1.start()
-player
-print(player.name)
+        act_1.start(player)

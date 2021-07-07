@@ -1,10 +1,9 @@
 from modules.acts_pt import endings
 from modules.classes.character import print_slow, check_input
 from time import sleep
-from main import player
 
 #Starts the game from act 01
-def start():
+def start(player):
     #Storytelling
     print_slow(f'''
     {player.name}

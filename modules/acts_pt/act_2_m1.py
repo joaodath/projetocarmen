@@ -13,14 +13,18 @@ def party():
     Após a missão em Xangai, Carmen recebe uma ligação da V.I.L.E 
     
     Carmen: Está bem condessa Cleo. O que seu coração sombrio deseja? 
-    Condessa Cleo: Para minha missão, quero que roube o último lote de um caviar Beluga,será servido numa festa de caridade em Mônaco.
+    Condessa Cleo: Para minha missão, quero que roube o último lote de um caviar Beluga.
+    Será servido numa festa de caridade em Mônaco.
     
-    Player: Localizado na Riviera Francesa, Mônaco é o segundo menor país do mundo. A festa será num luxuoso hotel em Monte Carlo.
+    Player: Localizado na Riviera Francesa, Mônaco é o segundo menor país do mundo. 
+    A festa será num luxuoso hotel em Monte Carlo.
 
-    Carmen: Vou me misturar, localizar as latas, e depois roubá-las. 
-    Anfitrião: Me daria a honra dessa dança, Srta Santa Rosa? 
+    Carmen: Vou me misturar, localizar as latas, e depois roubá-las.
+
+    Anfitrião da Festa: Me daria a honra dessa dança, Srta Santa Rosa? 
     
-    Carmen: Estou em missão, então deveria me concentrar e recusar. Mas aceitar a dança pode ser o melhor jeito de me misturar e chegar à cozinha.
+    Carmen: Estou em missão, então deveria me concentrar e recusar. 
+    Mas aceitar a dança pode ser o melhor jeito de me misturar e chegar à cozinha.
     ''')
     text = '''
     
@@ -53,8 +57,11 @@ def steel_caviare():
     #Storytelling
     print_slow('''
     Carmen observa dois garçons indo para a cozinha
+    
     Carmen: Avistei as ovas. 
+    
     Player: Como você vai pegar? 
+    
     Carmen: Posso esconder e sair furtivamente, ou pegar e sair correndo.     
     ''')
     text = '''
@@ -87,15 +94,19 @@ def vile_safebox():
     #Storytelling
     print_slow('''
     Carmen sai da cozinha com o caviar
+    
     Anfitrião: Peguem-na! 
     
-    Carmen pega o caviar e salta voo com um equipamento. 
-    Carmen liga para condessa Cleo
+    Carmen pega o caviar e salta vôo com um equipamento.
+
+    Carmen liga para Condessa Cleo
     
     Carmen: Peguei o caviar. 
     Condessa Cleo: Aguarde novas instruções. 
     
-    Player: Buscando esconderijos da V.I.L.E no Círculo Ártico, encontrei Ivy e Zac. O que quer fazer? 
+    Player: Buscando esconderijos da V.I.L.E no Círculo Ártico, encontrei Ivy e Zac. 
+    O que quer fazer? 
+    
     Carmen: Começo uma arriscada missão de resgate, ou roubo pela última vez?
 ''')
     text = '''
