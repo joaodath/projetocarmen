@@ -33,4 +33,5 @@ if __name__ == '__main__':
         player = Character(language=2)
         player.create_character()
         act_1.start()
-player = Character()
+player
+print(player.name)
