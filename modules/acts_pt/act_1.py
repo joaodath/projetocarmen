@@ -11,28 +11,13 @@ def start(player):
     arranha-céus do mundo, incluindo uma das mais notórias 
     fortalezas da V.I.L.E.
 
-    Câmeras de segurança desativadas e….
-
-    Pode ir, Vermelha!
+    Pode ir, {player.name}!
     O último andar é onde achará o cofre.
 
     {player.name}: E os itens recém roubados da V.I.L.E. que estarão 
     neste cofre. Zack, Ivy, estão em posição?
 
     Ivy: Todo o perímetro está coberto, {player.name}!
-
-    Zack: Mas vê se toma cuidado lá em cima. 
-
-    {player.name}: Sempre! Por que hoje seria diferente?
-
-    Zack: A gente tá em Xangai. Ninguém quer que você seja raptada 
-    por um dragão chinês, né? 
-
-    Ivy: Nem por ninguém!
-
-    {player.name}: Eu amo vocês também, equipe em terra. Mantenham o motor 
-    ligado e fiquem preparados. 
-
     ''')
     sleep(1)
     return building(player)
@@ -85,7 +70,7 @@ def top_building(player):
     sleep(0.5)
     print(f'''
     {player.name} usa um laser para cortar o vidro da fachada 
-    do prédio e entrar. Caímos no armário do zelador.''')
+    do prédio e entrar. Ela cai no armário do zelador.''')
     
     sleep(0.5)
     print_slow(f'''
@@ -125,14 +110,9 @@ def bottom_building(player):
     sleep(0.5)
     print(f'''
     {player.name} força a abertura da porta do elevador e 
-    dá de cara com seguranças. 
+    dá de cara com seguranças. Ela luta e os vence.
     ''')
     
-    sleep(1)
-    print(f'''São dois seguranças contra {player.name}. 
-    É uma luta injusta. Para eles. {player.name} derruba os seguranças.
-    ''')
-
     sleep(1)
     print_slow(f''' {player.name}: Player, me guie. \n''')
     print(f'''Player envia a rota para {player.name}.''')
@@ -190,28 +170,20 @@ def vile_vault(player):
     sleep(1)
     clear_screen()
     print_slow(f'''
-    Dra. Bellum: Recuse-se a fazer o nosso jogo e eu juro que os seus 
-    coleguinhas serão submetidos aos efeitos do LIMPADOR!
-
-    Condessa Cleo: Você usará isso para limpar os parabrisas 
-    ou as burradas deles?
-
-    Dra. Bellum: A memória, Cleo! Se você me deixasse terminar…
-    A questão é: depois que limparmos as suas memórias, iremos reprogramar a 
-    equipe da {player.name} para que se tornem agentes da V.I.L.E.! 
+    Dra. Bellum: Recuse-se a fazer o nosso jogo e eu juro que vamos apagar a memória deles e 
+    iremos reprogramar sua equipe para que se tornem agentes da V.I.L.E.! 
 
     Maelstrom: Então, você roubará para a gente ou serão eles?
 
-    Player: Vermelha, achei a van do Zack e da Ivy numa câmera de rua. 
+    Player: {player.name}: achei a van do Zack e da Ivy numa câmera de rua. 
     Está em movimento. Acha que consegue alcançar ela? 
     ''')
 
     sleep(1)
     clear_screen()
     text = f'''  
-    {player.name}: Posso tentar salvar o Zack e a Ivy agora, mas estaria 
-    arriscando a segurança deles. Ou, posso aceitar roubar para a V.I.L.E. 
-    até descobrir um jeito de ter a minha equipe de volta.
+    {player.name}: Posso tentar salvar o Zack e a Ivy agora, mas seria perigoso. 
+    Ou, posso aceitar roubar para a V.I.L.E. até descobrir um jeito de ter a minha equipe de volta.
 
     O que eu faço?
     Preciso trazê-los de volta em segurança, de algum jeito. 
@@ -232,8 +204,8 @@ def vile_vault(player):
 def rescue_team_vile_vault(player):
     clear_screen()
     print(f'''
-    {player.name} sai correndo do prédio da V.I.L.E. e 
-    pula usando o seu planador para seguir a van em movimento. \n ''')
+    {player.name} sai correndo do prédio da V.I.L.E. e pula usando o seu planador 
+    para seguir a van em movimento. \n ''')
     
     sleep(0.5)
     print_slow(f'''{player.name}: Estou avistando a van. \n ''')
@@ -250,7 +222,7 @@ def rescue_team_vile_vault(player):
     para aceitar nossa proposta?
 
     Maelstrom: Sim, parece que eu lhe devo um jantar, Treinadora Brunt. \n ''')
-    print('''Zack e Ivy são mostrados na tela. O Limpador é usado neles. 
+    print('''Zack e Ivy são mostrados na tela. A memória deles é apagada.  
     Fim de jogo. \n ''')
 
     sleep(1)
@@ -274,18 +246,7 @@ def steal_statue(player):
     {player.name}: Está bem. Qual é o jogo? 
 
     Treinadora Brunt: Primeira rodada! Já ouviu falar nos 
-    guerreiros de “terraboda” chineses?
-
-    {player.name}: Terracota! Não acha que roubar oito mil estátuas 
-    é exagerado, Treinadora Brunt? 
-
-    Treinadora Brunt: Só uma já serve.
-
-    {player.name}: Aposto que vão fazer um belo vaso de terracota para você.
-
-    Treinadora Brunt: Sapateira, na verdade. 
-    Para minha bota de terra de treinamento. Agora, faça o que faz de melhor, 
-    agente, e roube para a V.I.L.E. e não contra nós.
+    guerreiros de “terracota” chineses? Quero que roube uma estátua para mim.
 
     Player: O que nós vamos fazer?
 
@@ -295,9 +256,6 @@ def steal_statue(player):
     Player: Então agora, acho que irá para Xi’ian na China. 
     O Imperador Qin era meio excêntrico. Ele exigiu ser enterrado 
     com milhares desses guerreiros de barro em tamanho real. 
-
-    A tumba dele foi criada para ser uma cidade subterrânea com vários tipos 
-    de túneis de fuga e armadilhas para afastar intrusos. 
 
     Você deve ir a um novo sítio de escavação onde recentemente 
     descobriram mais guerreiros.
@@ -309,18 +267,15 @@ def steal_statue(player):
     sleep(2)
     clear_screen()
     print_slow(f'''
-    {player.name}: Ou é a terça informal para a equipe de segurança ou 
-    minha arqui inimiga Tigresa decidiu aparecer. 
+    {player.name}: Minha arqui inimiga Tigresa decidiu aparecer. 
 
-    Player: Por que a V.I.L.E. enviaria uma de suas agentes se é você quem 
-    deve fazer o roubo para eles?
+    Player: Por que a V.I.L.E. enviaria uma de suas agentes ?
 
     {player.name}: Para me ajudar ou para me ferrar.
     ''')
 
     text = f'''  
-    {player.name}: Eu posso passar de fininho pela Tigresa já que não me 
-    importo de saber isso ou posso falar com a Tigresa e ver se 
+    {player.name}: Eu posso passar de fininho pela Tigresa ou posso falar com a Tigresa e ver se 
     ela entrega onde eles podem estar mantendo Zack e Ivy.
 
     Passar de fininho ou bater um papinho? 
@@ -372,9 +327,6 @@ def chit_chat_tigress(player):
 
     Player: Vermelha, achei um túnel na área de escavação. 
     Deve levar direto para os guerreiros.
-
-    {player.name}: Seja uma boa subordinada e fique de guarda. 
-    Tenho trabalho a fazer.
     ''')
 
     return tunnel_soldier(player)
@@ -384,23 +336,16 @@ def tunnel_soldier(player):
     sleep(0.5)
     clear_screen()
     print_slow(f'''
-    Tigresa: Que pena! Quando seus amigos tiverem os cérebros zerados, 
-    não vão mais lembrar de você. 
-
     {player.name}: Já que você está aqui. Por acaso saberia onde meus 
     amigos estão sendo mantidos? Eu gostaria de mandar um postal.
 
-    Tigresa: Até parece que eu ia contar. Olha aqui, depois que ficarem 
-    sem memória, acho que vou reprogramar os seus amigos para serem 
-    MEUS amigos. “Mack” e “Lily” vão andar com a Tigresa! 
+    Tigresa: Até parece que eu ia contar. 
     ''')
 
     sleep(0.5)
     print(f'''
     Tigresa ativa sem querer uma armadilha e tanto ela quanto {player.name} 
-    caem num buraco. {player.name} é mais rápida e usa sua tirolesa 
-    automática para prender uma corda no teto do túnel e escapar. 
-    Tigresa fica presa. 
+    caem num buraco. {player.name} é mais rápida e escapa. Tigresa fica presa. 
     ''')
     print_slow(f'''
     {player.name}: Uau! Eu achei que gatos sempre caíssem em pé.
@@ -459,15 +404,8 @@ def text_security_officer(player):
     clear_screen()
     #Storytelling
     print(f'''
-    {player.name} chega no salão de escavação dos guerreiros de terracota. ''')
-    sleep(0.5)
-    print_slow(f'''
-    {player.name}: É impressionante!
-    ''')
-    sleep(0.5)
-    print(f'''
-    {player.name} faz uma chamada de vídeo para a Treinadora Brunt
-    ''')
+    {player.name} chega no salão de escavação dos guerreiros de terracota e
+    faz uma chamada de vídeo para a Treinadora Brunt. ''')
     print_slow(f'''
     Treinadora Brunt: Espero que seja para falar de um assunto bom.
 
@@ -477,20 +415,8 @@ def text_security_officer(player):
     Mostra tudo para eu escolher um bom!
     ''')
     sleep(0.5)
-    print(f'{player.name} mostra um guerreiro.')
+    print(f'{player.name} mostra os guerreiros para a vilã escolher.')
     
-    sleep(0.5)
-    print_slow('Treinadora Brunt: Muito franzino!')
-
-    sleep(0.5)
-    print(f'{player.name} mostra outro.')
-
-    sleep(0.5)
-    print_slow('Treinadora Brunt: Não! Muito feio!')
-
-    sleep(0.5)
-    print(f'{player.name} mostra um terceiro.')
-
     sleep(0.5)
     print_slow(f'''
     reinadora Brunt: Aí! Esse aí!
@@ -508,8 +434,7 @@ def security_officer(player):
     sleep(0.5)
     clear_screen()
     print(f'''
-    A equipe de extração começa a içar a estátua de guerreiro 
-    de terracota para dentro de um helicóptero quando {player.name} 
+    A equipe de extração começa a içar a estátua para dentro de um helicóptero quando {player.name} 
     é vista por um segurança.
     ''')
     
@@ -526,11 +451,8 @@ def security_officer(player):
     {player.name}: Posso pular e pegar carona com a estátua ou me camuflar 
     e me esconder com os guerreiros.
 
-    Os guardas estão vindo!
-
     Pular ou camuflar?
 
-    
     [1] Pegar carona com a estátua
     [2] Se esconder com os outros guerreiros
     
@@ -549,8 +471,7 @@ def jump_statue(player):
     clear_screen()
     print(f'''
     {player.name} pega carona com a estátua, mas os guardas conseguem pular e 
-    se pendurarem nas pernas de {player.name}. A cinta que estava segurando a 
-    estátua não aguenta o peso e se rompe. A estátua cai no telhado junto com 
+    se pendurarem nas pernas de {player.name}. A estátua cai no telhado junto com 
     os guardas e se quebra. {player.name} consegue fugir em seu planador. 
     ''')
     sleep(0.5)
@@ -575,11 +496,8 @@ def jump_statue(player):
 
     Dra. Bellum: Ele foi rebatizado: O DERRETE MENTES!
 
-    Treinadora Brunt: Vou querer mente derretida com salada! Pra viagem! 
-    ''')
-
     sleep(0.5)
-    print(f'Zack e Ivy têm as mentes apagadas. {player.name} perdeu.')
+    print(f'Zack e Ivy têm as mentes apagadas. {player.name} perdeu.''')
 
     sleep(0.5)
     print_slow(f'''
@@ -607,11 +525,8 @@ def hide_statue(player):
     ''')
     #Storytelling
     print_slow(f'''
-    Segurança: O ladrão fugiu! Vamos!
+    Segurança: O ladrão fugiu! Vamos! ''')
 
-    {player.name} está limpando a sujeira da camuflagem: 
-    Eu adoraria tomar um bom banho agora!
-    ''')
     sleep(1)
     return choose_act_two(player)
 
