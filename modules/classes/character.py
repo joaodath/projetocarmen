@@ -4,12 +4,12 @@ from modules.extras import check_input, check_input_en
 
 
 class Character():
-    def __init__(self, language=2, name='Carmen Sandiego', help_tigress=False):
+    def __init__(self, name='Carmen Sandiego', language=2, help_tigress=False):
         self.__name = name
+        self.__language = language
         self.__energy = 3
         self.__persuasion = 3
         self.__lucky = 3
-        self.__language = language
         self.__help_tigress = help_tigress
 
     def create_character(self):
@@ -59,6 +59,9 @@ class Character():
     def energy(self, energy):
         self.__energy = energy
 
+    def energy_op(self, value):
+        self.__energy += value
+
     @property
     def persuasion(self):
         return self.__persuasion
@@ -67,6 +70,9 @@ class Character():
     def persuasion(self, persuasion):
         self.__persuasion = persuasion
 
+    def persuasion_op(self, value):
+        self.__persuasion += value
+
     @property
     def lucky(self):
         return self.__lucky
@@ -74,6 +80,9 @@ class Character():
     @lucky.setter
     def lucky(self, lucky):
         self.__lucky = lucky
+
+    def lucky_op(self, value):
+        self.__lucky += value
 
     @property
     def help_tigress(self):
