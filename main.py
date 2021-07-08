@@ -38,7 +38,7 @@ if __name__ == '__main__':
         act_1.start(player)
 
     else:
-        from modules.acts_pt import act_1
+        from modules.acts_pt import act_2_m1
         clear_screen()
         print_slow('''
     Oi! Bem vinde a "Carmen Sandiego: roubar ou não roubar, eis a questão".
@@ -46,4 +46,4 @@ if __name__ == '__main__':
         sleep(1)
         player = Character(language=2)
         player.create_character()
-        act_1.start(player)
+        act_2_m1.start_m1(player)
