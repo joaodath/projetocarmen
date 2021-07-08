@@ -7,7 +7,8 @@ class Character():
     def __init__(self, language=2, name='Carmen Sandiego', help_tigress=False):
         self.__name = name
         self.__energy = 3
-        self.__persuasao = 3
+        self.__persuasion = 3
+        self.__lucky = 3
         self.__language = language
         self.__help_tigress = help_tigress
 
@@ -54,31 +55,25 @@ class Character():
     def energy(self):
         return self.__energy
 
-    def increase_energy(self, value=1):
-        self.__energy += value
-
-    def decrease_energy(self, value=1):
-        self.__energy -= value
+    @energy.setter
+    def energy(self, energy):
+        self.__energy = energy
 
     @property
-    def hunger(self):
-        return self.__hunger
+    def persuasion(self):
+        return self.__persuasion
 
-    def eat_something(self):
-        self.__hunger = False
-
-    def be_hungry(self):
-        self.__hunger = True
+    @persuasion.setter
+    def persuasion(self, persuasion):
+        self.__persuasion = persuasion
 
     @property
-    def budget(self):
-        return self.__budget
+    def lucky(self):
+        return self.__lucky
 
-    def increase_budget(self, value):
-        self.__budget += value
-
-    def decrease_budget(self, value):
-        self.__budget -= value
+    @lucky.setter
+    def lucky(self, lucky):
+        self.__lucky = lucky
 
     @property
     def help_tigress(self):

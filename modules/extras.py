@@ -1,7 +1,10 @@
+from random import randint
 # xtra functions used throughout the entire game
 
 # This function gets the string,splits and print it letter by letter using
 # the sleep function from time library as the speedometer
+
+
 def print_slow(str):
     from time import sleep
     from os import sys
@@ -44,3 +47,12 @@ def check_input_en(text, options):
 def clear_screen():
     import os
     os.system('cls' if os.name == 'nt' else 'clear')
+
+
+def check_sucess(value):
+    dice = randint(1, 6)
+
+    if dice <= value:
+        return True
+    else:
+        return False
