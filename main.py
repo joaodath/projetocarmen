@@ -13,7 +13,7 @@ if __name__ == '__main__':
     We're starting the game soon!
     First, we need to know your language preference.
     
-    Bem vinde a "Carmen Sandiego: roubar ou não roubar, eis a questão".
+    Bem vinde a "Carmen Sandiego: roubar ou não, eis a questão".
     Vamos começar o jogo já, já!
     Primeiro, precisamos saber seu idioma de preferência. 
     ''')
