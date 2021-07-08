@@ -3,7 +3,7 @@ from modules.extras import print_slow, check_input, clear_screen
 from time import sleep
 
 #Starts Act 02 from Mission 02
-def start(player):
+def start_m2(player):
     clear_screen()
     return in_the_lab(player)
 
@@ -58,6 +58,6 @@ def rescue_team(player):
     return endings.good_ending_1(player)
 
 
-def steel_again():
+def steel_again(player):
     clear_screen()
     return endings.bad_ending_4(player)
