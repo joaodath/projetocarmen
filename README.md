@@ -126,7 +126,10 @@ extension [clicking here](https://open.vscode.dev/joaodath/projetocarmen) or usi
 [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/joaodath/projetocarmen)
 
 ## The team behind this project
-[Ana Trindade](https://github.com/anacgsantana)
-[Caio Manfredini](https://github.com/cmanfeed)
-[João Rodrigues](https://github.com/joaodath)
-[Renan Batista](https://github.com/Dev33Renan)
+[**Ana Trindade**](https://github.com/anacgsantana)
+
+[**Caio Manfredini**](https://github.com/cmanfeed)
+
+[**João Rodrigues**](https://github.com/joaodath)
+
+[**Renan Batista**](https://github.com/Dev33Renan)
