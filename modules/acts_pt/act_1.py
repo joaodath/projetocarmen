@@ -169,14 +169,16 @@ def text_vile_vault(player):
 def vile_vault(player):
     clear_screen()
     print_slow(f'''
-    Dra. Bellum: Recuse-se a fazer o nosso jogo e eu juro que vamos apagar a memória deles e 
-    iremos reprogramar sua equipe para que se tornem agentes da V.I.L.E.! 
+    Dra. Bellum: Recuse-se a fazer o nosso jogo e eu juro que vamos 
+    apagar a memória deles e iremos reprogramar sua equipe para que se tornem 
+    agentes da V.I.L.E.! 
 
     Player: {player.name}: achei a van do Zack e da Ivy numa câmera de rua. 
     Está em movimento. Acha que consegue alcançar ela?
 
-    {player.name}: ~ Posso tentar salvar o Zack e a Ivy agora, mas seria perigoso. 
-    Ou, posso aceitar roubar para a V.I.L.E. até descobrir um jeito de ter a minha equipe de volta. ~
+    {player.name}: ~ Posso tentar salvar o Zack e a Ivy agora, 
+    mas seria perigoso. Ou, posso aceitar roubar para a V.I.L.E. 
+    até descobrir um jeito de ter a minha equipe de volta. ~
     ''')
     sleep(2)
 
@@ -201,8 +203,8 @@ def vile_vault(player):
 def rescue_team_vile_vault(player):
     clear_screen()
     print(f'''
-    {player.name} sai correndo do prédio da V.I.L.E. e pula usando o seu planador 
-    para seguir a van em movimento.\n ''')
+    {player.name} sai correndo do prédio da V.I.L.E. e pula usando o seu 
+    planador para seguir a van em movimento.\n ''')
     sleep(3)
 
     print_slow(f'''
@@ -233,9 +235,9 @@ def rescue_team_vile_vault(player):
     clear_screen()
     print_slow(f'''
     ------------
-    Carambas, isso não é bom! A situação agora é irreversível. Entretanto, como
-    último recurso, você utilizará sua persuasão para convencer a Treinadora
-    Brunt a não apagar a memória dos seus amigos.
+    Carambas, isso não é bom! A situação agora é irreversível. 
+    Entretanto, como último recurso, você utilizará sua persuasão para 
+    convencer a Treinadora Brunt a não apagar a memória dos seus amigos.
 
     Persuasão: +{player.persuasion}
     ------------
@@ -245,21 +247,22 @@ def rescue_team_vile_vault(player):
 
     if check_sucess(player.persuasion) == True:
         print_slow(f'''
-    {player.name}: Ok, Treinadora Blunt. Você me pegou nessa. Entretanto, eu sou
-    sua melhor escolha para o assalto. Eu aceito a proposta. Sem truques
-    dessa vez.
+    {player.name}: Ok, Treinadora Blunt. Você me pegou nessa. 
+    Entretanto, eu sou sua melhor escolha para o assalto. 
+    Eu aceito a proposta. Sem truques dessa vez.
 
     Treinadora Brunt respira fundo, relutante.
 
-    Treinadora Brunt: OK... Você tem uma nova oportunidade. Espero que não a desperdice!
+    Treinadora Brunt: OK... Você tem uma nova oportunidade. 
+    Espero que não a desperdice!
         ''')
 
         return steal_statue(player)
     else:
         print_slow(f'''
-    {player.name}: Ok, Treinadora Blunt. Você me pegou nessa. Entretanto, eu sou
-    sua melhor escolha para o assalto. Eu aceito a proposta. Sem truques
-    dessa vez.
+    {player.name}: Ok, Treinadora Blunt. Você me pegou nessa. Entretanto, 
+    eu sou sua melhor escolha para o assalto. Eu aceito a proposta. 
+    Sem truques dessa vez.
 
     Treinadora Brunt: Não cairei nessa ladainha novamente!
         ''')
@@ -301,8 +304,10 @@ def steal_statue(player):
 
     Player: Por que a V.I.L.E. enviaria uma de suas agentes ?
 
-    {player.name}: ~ Para me ajudar ou para me ferrar. Eu posso passar de fininho pela Tigresa
-    ou posso falar com a Tigresa e ver se ela entrega onde eles podem estar mantendo Zack e Ivy. ~
+    {player.name}: ~ Para me ajudar ou para me ferrar. 
+    Eu posso passar de fininho pela Tigresa
+    ou posso falar com a Tigresa e ver se ela entrega onde 
+    eles podem estar mantendo Zack e Ivy. ~
     ''')
     sleep(2)
 
@@ -401,7 +406,8 @@ def tunnel_soldier(player):
 
     print(f'''
     Tigresa ativa sem querer uma armadilha e tanto ela quanto {player.name} 
-    caem num buraco. {player.name} é mais rápida e escapa. Tigresa fica presa.''')
+    caem num buraco. {player.name} é mais rápida e escapa. Tigresa fica presa.
+    ''')
     sleep(3)
 
     print_slow(f'''
@@ -409,8 +415,8 @@ def tunnel_soldier(player):
 
     Tigresa: Me ajuda a sair daqui. Agora!
     
-    {player.name}: ~ Só dessa vez eu poderia ajudar a Tigresa. Ou, eu posso deixar que
-    ela se vire para sair. ~ ''')
+    {player.name}: ~ Só dessa vez eu poderia ajudar a Tigresa. Ou, eu posso 
+    deixar que ela se vire para sair. ~ ''')
     sleep(2)
 
     clear_screen()
@@ -481,6 +487,7 @@ def leave_tigress(player):
     {player.name}: Não estou te ouvindo! Estou num túnel. O sinal tá ruim…
     ''')
     sleep(2)
+    player.help_tigress = 0
     return text_security_officer(player)
 
 
@@ -521,8 +528,8 @@ def security_officer(player):
     clear_screen()
 
     print(f'''
-    A equipe de extração começa a içar a estátua para dentro de um helicóptero quando {player.name} 
-    é vista por um segurança.''')
+    A equipe de extração começa a içar a estátua para dentro de um helicóptero 
+    quando {player.name} é vista por um segurança.''')
 
     sleep(3)
     print_slow(f'''
@@ -629,7 +636,7 @@ def jump_statue(player):
     Treinadora Brunt: Hey, Dra! Hora de carregar o seu… 
     Como se chama mesmo essa coisa? 
 
-    Dra. Bellum: Ele foi rebatizado: O DERRETE MENTES!''')
+    Dra. Bellum: Ele foi rebatizado de O DERRETE MENTES!''')
 
         sleep(1)
         return endings.bad_ending_2()

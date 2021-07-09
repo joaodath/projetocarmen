@@ -4,13 +4,15 @@ from modules.extras import check_input, check_input_en
 
 
 class Character():
-    def __init__(self, name='Carmen Sandiego', language=2, help_tigress=False):
+    def __init__(self, name='Carmen Sandiego', language=2, help_tigress=False,
+                trust_julia=False):
         self.__name = name
         self.__language = language
         self.__energy = 3
         self.__persuasion = 3
         self.__lucky = 3
         self.__help_tigress = help_tigress
+        self.__trust_julia = trust_julia
 
     def create_character(self):
         if self.__language == 2:
@@ -90,7 +92,18 @@ class Character():
 
     @help_tigress.setter
     def help_tigress(self, value):
-        if value == 0:
+        if value == 0 or value == '0':
             self.__help_tigress = bool(False)
-        elif value == 1:
+        elif value == 1 or value == '1':
             self.__help_tigress = bool(True)
+    
+    @property
+    def trust_julia(self):
+        self.__trust_julia
+
+    @trust_julia.setter
+    def trust_julia(self, value):
+        if value == 0 or value == '0':
+            self.__trust_julia = bool(False)
+        elif value == 1 or value == '1':
+            self.__trust_julia = bool(True)

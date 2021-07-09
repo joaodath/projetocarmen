@@ -81,7 +81,7 @@ def dance(player):
     ''')
     sleep(3)
 
-    return steel_caviare(player)
+    return talking_with_julia(player)
 
 
 def refuse_dance(player):
@@ -91,10 +91,11 @@ def refuse_dance(player):
     {player.name} : Obrigado, mas valsa não é minha praia. Se quiser dançar
     tango...
 
-    O Anfitrião se despede cordialmente e vai embora.
+    O Anfitrião se despede cordialmente e vai embora. 
 
     ------------
-    Opa! As vezes é bom realizar alguns sacrificios para se misturar no local...
+    Opa! As vezes é bom realizar alguns sacrifícios 
+    para se misturar no local...
 
     Persuação: +{player.persuasion} [-1]
     ------------
@@ -102,6 +103,93 @@ def refuse_dance(player):
     ''')
     sleep(3)
 
+    return talking_with_julia(player)
+
+
+def talking_with_julia(player):
+    print(f'{player.name} é abordada por outra agente da ACME.')
+    print_slow(f'''
+    Julia: {player.name}?
+
+    {player.name}: Não quer dizer Scarlet Santa Rosa? 
+
+    Julia: Sim. É claro. É bom te ver novamente senhorita Sta Rosa. 
+    Posso presumir porque está aqui. Soubemos que um agente da V.I.L.E 
+    está atrás do caviar Beluga. Aposto que está aqui para pegá-los 
+    antes que o roubem. 
+
+    {player.name}: É… Algo assim.
+
+    Julia: Com certeza já soube do recente roubo do guerreiro chinês de 
+    terracota. Eu ficaria aliviada se um tesouro roubado aparecesse na 
+    minha porta e me permitisse devolvê-lo às autoridades. 
+
+    Player: Só que dessa vez a entrega será feita à V.I.L.E e não à ACME.
+
+    {player.name}: Talvez eu possa explicar isso à ela. 
+
+    Player: Podemos confiar na Julia?
+    ''')
+
+    text = f'''
+    {player.name}: Já me aliei a ela antes. 
+    Confiar nela pode funcionar de novo. 
+    Mas, se a V.I.L.E souber que estou de conluio com a ACME, 
+    quem sabe o que farão? 
+
+    [1] Confiar na Júlia
+    [2] Enrolar a Júlia
+
+    '''
+    if check_input(text, [1, 2]) == 1:
+        sleep(1)
+        return trust_julia(player)
+    else:
+        sleep(1)
+        return not_trust_julia(player)
+
+
+def trust_julia(player):
+    print_slow(f'''
+    {player.name}: Julia, escuta. 
+    Sou a agente enviada para roubar o caviar Beluga. 
+
+    Julia: Não entendo. Por que roubaria para V.I.L.E?
+
+    {player.name}: É só o que posso falar agora. 
+    Peço que confie nos meus motivos. 
+
+
+    Julia: Que sejam bons motivos, Srta Santa Rosa. 
+    ''')
+    print('Júlia vai se lembrar que você confiou nela.')
+    player.trust_julia = 1
+    sleep(2)
+    return steel_caviare(player)
+
+
+def not_trust_julia(player):
+    print_slow(f'''
+    {player.name}: Júlia, escuta. Você tem razão em estar desconfiada. 
+    Preciso te mostrar uma coisa.
+    ''')
+    print(f'{player.name} segue para as escadas com Júlia.')
+    sleep(1)
+    print_slow(f'''
+    {player.name}: A V.I.L.E. está de prontidão no telhado agora. 
+    Temos que agir rápido! Anda! Não temos muito tempo!
+    ''')
+    print(f'''
+    Júlia tenta chamar reforços usando sua caneta espiã mas {player.name} 
+    toma de sua mão rapidamente quando ela passa pela porta que dá no telhado.
+    ''')
+
+    sleep(1)
+    print(f'{player.name} tranca Júlia no telhado.')
+    print_slow(f'{player.name}: Foi mal, Júlia. Sério mesmo.')
+    print('Júlia vai se lembrar que você não confiou nela.')
+    player.trust_julia = 0
+    sleep(2)
     return steel_caviare(player)
 
 
@@ -150,7 +238,7 @@ def steel_caviare(player):
             return hide(player)
         else:
             clear_screen()
-            print_slow(f'''
+            print(f'''
     Infelizmente o disfarce não deu muito certo... Um garçom reconheceu você!
             ''')
             sleep(3)
@@ -163,22 +251,31 @@ def steel_caviare(player):
 def hide(player):
     clear_screen()
 
+    print(f'''
+    {player.name} se disfarça como garçom para capturar os caviares. 
+    Entretanto um imprevisto acontece! Como houve um tempo decorrido 
+    para o disfarce, os caviares já foram removidos de suas latas e empratados!
+    ''')
+
+    sleep(2)
+    print(f'''
+    {player.name} captura os caviares dos pratos e os põe em uma vasilha e 
+    foge furtivamente. Após sair da festa, entra em contato com a 
+    Condessa Cleo.
+    ''')
+    
+    sleep(2)
+    clear_screen()
     print_slow(f'''
-    {player.name} se disfarça como garçom para capturar os caviares. Entretanto um imprevisto acontece!
-    Como houve um tempo decorrido para o disfarce, os caviares já foram removidos de suas latas,
-    sendo servidos em pratos!
-    
-    {player.name} captura os caviares dos pratos e os põe em uma vasilha e foge furtivamente. Após
-    sair da festa, entra em contato com a Condessa Cleo.
-    
     Carmen: O caviar está servido.
 
     Condessa Cleo: Que grosseria! Fora das latas, deixou a iguaria exposta!
 
     Carmen: Você queria ovas de peixe, eu entreguei.
     
-    Condessa Cleo: Foi o que fez. Mas agora só vão durar um dia! E não posso consumir cem latas de
-    caviar em um dia. Dra Bellum, ative o... seja lá qual for o nome disso hoje!
+    Condessa Cleo: Foi o que fez. Mas agora só vão durar um dia! 
+    E não posso consumir cem latas de caviar em um dia. 
+    Dra Bellum, ative o... seja lá qual for o nome disso hoje!
 
     Carmen: Não!
     ''')
@@ -192,7 +289,8 @@ def hide(player):
     clear_screen()
     print_slow(f'''
     ------------
-    OH NÃO! Parece que estamos em um grande impasse. Hora de testar seus limites!
+    OH NÃO! Parece que estamos em um grande impasse. 
+    Hora de testar seus limites!
     Você tentará convencer a Condessa Cleo a salvar seus amigos.
     
     Persuasão: +{player.persuasion}
@@ -225,8 +323,8 @@ def hide(player):
     {player.name}: Por favor, me dê uma nova oportunidade! Prometo que darei
     meu máximo em ser discreta. Afinal, sou a melhor opção que vocês possuem.
 
-    Condessa Cleo: Não mesmo! Apenas uma tola confiaria em uma ladra. Continuem o
-    procedimento!
+    Condessa Cleo: Não mesmo! Apenas uma tola confiaria em uma ladra. 
+    Continuem o procedimento!
         ''')
         sleep(2)
         endings.bad_ending_5()
@@ -315,8 +413,8 @@ def steel_again(player):
     Sua Escolha: '''
 
     if check_input(text, [1, 2]) == 1:
-        sleep(1)
-        return endings.good_ending_1(player)
+        from modules.acts_pt import act_3a
+        return act_3a.start_3a(player) #Used to be a Good Ending
     else:
         sleep(1)
         from modules.acts_pt import act_2_m2
