@@ -87,7 +87,7 @@ def ending_trusted_julia(player):
     print(f'{player.name} devolve os itens que roubou para Julia.')
 
     sleep(2)
-    endings.good_ending_3()
+    endings.good_ending_3(player)
 
     sleep(10)
     print('Auto-destruição em 3')
@@ -133,7 +133,7 @@ def ending_not_trusted_julia(player):
     dardos tranquilizantes.
     ''')
     sleep(4)
-    endings.bad_ending_6()
+    endings.bad_ending_6(player)
     sleep(10)
     print('Auto-destruição em 3')
     sleep(1)

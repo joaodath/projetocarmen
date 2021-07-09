@@ -80,7 +80,7 @@ def end_helped_tigress(player):
     ''')
 
     sleep(2)
-    endings.good_ending_2()
+    endings.good_ending_2(player)
     sleep(10)
     print('Auto-destruição em 3')
     sleep(1)
@@ -116,7 +116,7 @@ def end_not_helped_tigress(player):
 
     sleep(2)
     clear_screen()
-    endings.bad_ending_4()
+    endings.bad_ending_4(player)
     sleep(10)
     print('Auto-destruição em 3')
     sleep(1)
