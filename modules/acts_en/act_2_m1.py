@@ -19,7 +19,7 @@ def start_m1(player):
     print_slow(f'''
     After the mission in Shanghai, {player.name} receives a call from the V.I.L.E
 
-    {player.nome}: Okay Countess Cleo. What did your dark heart desires?
+    {player.name}: Okay Countess Cleo. What does your dark heart desire?
     Countess Cleo: For my mission, I want you to steal the last batch of a
     Beluga caviar. It will be served at a charity party in Monaco. 
 
@@ -37,14 +37,14 @@ def party(player):
     clear_screen()
     # Storytelling
     print(f'''
-    {player.nome} arrives at the party.
+    {player.name} arrives at the party.
     The host sees her and goes to meet her''')
 
     sleep(2)
     print_slow(f'''
     Party Host: Would you give me the honor of this dance, Miss...?
 
-    {player.nome}: Santa Rosa! Miss. Santa Rosa.
+    {player.name}: Santa Rosa! Miss. Santa Rosa.
 
     Party Host: Would you give me the honor of this dance, Miss Santa Rosa?
 

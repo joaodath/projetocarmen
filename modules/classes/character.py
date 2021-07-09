@@ -90,15 +90,16 @@ class Character():
 
     def define_atributes(self):
         print('''
-    Durante o jogo, você guiará a personagem em escolhas que afetam o resultado final
-    da partida. Tais escolhas levam em conta três atributos específicos:
+    Durante o jogo, você guiará a personagem em escolhas que afetam o 
+    resultado final da partida. Tais escolhas levam em conta 
+    três atributos específicos:
 
     - Persuasão (0-9)
     - Sorte     (0-9)
     - Energia   (0-9)
         
-    Você tem 9 pontos disponíveis para distribuir entre tais atributos. Informe quantos pontos
-    irão para cada atributo no passo abaixo.\n\n
+    Você tem 9 pontos disponíveis para distribuir entre tais atributos. 
+    Informe quantos pontos irão para cada atributo no passo abaixo.\n\n
         ''')
 
         while True:

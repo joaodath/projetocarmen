@@ -167,10 +167,10 @@ def text_vile_vault(player):
     print_slow(f'''
     {player.name}: Well, well. All my former crime school instructors!
 
-    Maelstrom: You are without a doubt the best thief who has ever been through the
-    hallways of the V.I.L.E. Academy
+    Maelstrom: You are without a doubt the best thief who has ever been 
+    through the hallways of the V.I.L.E. Academy
 
-    Countess Cleo: Although we never picked the fruits of we've taught every 
+    Countess Cleo: Although we never picked the fruits for teaching every 
     stealing skill you know.
 
     Dr. Bellum: So, today we can finally play
@@ -418,7 +418,7 @@ def tunnel_soldier(player):
     {player.name}: Since you are here. Is there any chance you would know 
     where my friends are being kept? I would like to send a postcard.
 
-    Tigress: It looks like I was going to tell.
+    Tigress: As if I was going to tell you.
     ''')
 
     sleep(3)
@@ -464,7 +464,9 @@ def help_tigress(player):
     ''')
     
     sleep(2)
-    print_slow(f'{player.name}: I ll help you just this once.')
+    print_slow(f'''
+    {player.name}: I ll help you just this once.
+    ''')
 
     sleep(3)
     print('Reminder: Tigress will remember that you helped her to escape.')
@@ -516,7 +518,7 @@ def text_security_officer(player):
     clear_screen()
     #Storytelling
     print(f'''
-    {player.name} arrives at the terracotta warriors' excavation hall and
+    {player.name} arrives at the terracota warriors' excavation hall and
     makes a video call to Coach Brunt. ''')
     print_slow(f'''
     Coach Brunt: I hope it's to talk about something good.
@@ -528,7 +530,9 @@ def text_security_officer(player):
     ''')
 
     sleep(3)
-    print(f'{player.name} show the warriors for the villain to choose.')
+    print(f'''
+    {player.name} show the warriors for the villain to choose.
+    ''')
     
     sleep(3)
     print_slow(f'''
