@@ -1,83 +1,291 @@
 from modules.acts_pt import endings
+from modules.extras import print_slow, check_input, clear_screen
+from time import sleep
+
+#Starts Mission 1 from Act 2
+def start_m1(player):
+    clear_screen()
+    sleep(1)
+    return party(player)
 
 
-def check_input(text, options):
-    choice = int(input(text))
+def party(player):
+    clear_screen()
+    #Storytelling
+    print(f'''
+    After the mission in Shanghai, {player.name} receives a call from the V.I.L.E''')
+    print_slow(f'''
+    {player.nome}: Okay Countess Cleo. What did your dark heart desires?
+     Countess Cleo: For my mission, I want you to steal the last batch of a
+     Beluga caviar. It will be served at a charity party in Monaco. ''')
+    sleep(1)
+    clear_screen()
+    print_slow(f'''
+    Player:Located on the French Riviera, Monaco is the second
+    smallest country in the world. The party will take place at a luxury hotel in Monte Carlo.
 
-    while choice not in options:
-        print('Não entendi. Tente novamente.\n')
-        choice = int(input(text))
-
-    return choice
-
-
-def start():
-    return party()
-
-
-def party():
-    text = '''
-    Você deseja dançar ou prefere prosseguir?
-
-    [1] Dançar
-    [2] Recusar a dança
-
-    Sua escolha: '''
-
-    if check_input(text, [1, 2]) == 1:
-        return dance()
-    else:
-        return refuse_dance()
-
-
-def dance():
-    return steel_caviare()
-
-
-def refuse_dance():
-    return steel_caviare()
-
-
-def steel_caviare():
-    text = '''
-    Você irá esconder o caviar ou roubar e correr?
+    {player.nome}: I'll mingle myself, locate the cans, and then steal them.
+    ''')
+    print(f'''
+    {player.nome} arrives at the party.
+    The host sees her and goes to meet her''')
     
-    [1] Disfarçar e Esconder
-    [2] Roubar e Correr
+    sleep(1)
+    print_slow(f'''
+    Party Host: Would you give me the honor of this dance, Miss...?
+
+    {player.nome}: Santa Rosa! Miss. Santa Rosa.
+
+    Party Host: Would you give me the honor of this dance, Miss Santa Rosa?
+    ''')
+    text = f'''
+    {player.nome}: I'm on a mission, so I should concentrate and refuse.
+    But accepting the dance might be the best way to blend in and
+    get to the kitchen.
+
+    Should I dance or go ahead with the plan?
+
+    [1] To dance
+    [2] Refuse to dance
+
+    Your choice: '''
+
+    if check_input(text, [1, 2]) == 1:
+        sleep(1)
+        return dance(player)
+    else:
+        sleep(1)
+        return refuse_dance(player)
+
+
+def dance(player):
+    print_slow(f'''
+    {player.name} participates in a beautiful dance with the Host of the Party.
+    This helps her blend in on the spot.
+    ''')
+    clear_screen()
+    sleep(1)
+    return steel_caviare(player)
+
+
+def refuse_dance(player):
+    print_slow(f'''
+    {player.name} : Thanks, but waltz is not my thing. if you want to dance
+    tango...
+
+    The Host cordially says goodbye and leaves.
+    ''')
+    clear_screen()
+    sleep(1)
+    return steel_caviare(player)
+
+
+def steel_caviare(player):
+    clear_screen()
+    #Storytelling
+    print(f'''
+    {player.nome} observe two waiters going to the kitchen ''')
+    print_slow(f'''
+    {player.nome}: I saw the roe.
     
-    Sua escolha: '''
+    Player: How will you get it?
+    
+         
+    ''')
+    text = f'''
+    {player.name}: I can hide and sneak out,
+     or pick it up and run away.
+    
+     Do I disguise and hide the caviar or steal and run?
+    
+     [1] Disguise and Capture
+     [2] Steal and Run
+    
+     Your choice: '''
 
     if check_input(text, [1, 2]) == 1:
-        return hide()
+        sleep(1)
+        return hide(player)
     else:
-        return run()
+        sleep(1)
+        return run(player)
 
 
-def hide():
-    return endings.bad_ending_5()
+def hide(player):
+    clear_screen()
+    print_slow(f'''
+   {player.name} disguises himself as a waiter to capture the caviars. However, an unforeseen event happens!
+     As there was time for the disguise, the caviars have already been removed from their cans,
+     being served on plates!
+    
+     {player.name} captures the caviars from the dishes and puts them in a bowl and sneaks away. After
+     leave the party, get in touch with Countess Cleo.
+    
+     Carmen: The caviar is served.
+
+     Countess Cleo: How rude! Out of the cans, left the delicacy exposed!
+
+     Carmen: You wanted fish eggs, I delivered.
+    
+     Countess Cleo: That's what you did. But now they will only last a day! And I can't consume a hundred cans of
+     caviar in one day. Dr Bellum, activate the... whatever the name of it is today!
+
+     Carmen: No!
+    ''')
+    sleep(1)
+    print(f'''
+    {player.name} dresses up as a waitress.
+     She watches the V.I.L.E mime eating something.
+    ''')
+    
+    sleep(1)
+    print_slow(f'''
+    {player.name}: It's out of character. You should eat invisible snacks.
+    ''')
+
+    sleep(0.5)
+    print('The man starts to feel sick.')
+
+    sleep(0.5)
+    print_slow(f'''
+    {player.name}: I think the mime is not okay.
+
+   Player: I'm not surprised. Mimes are not funny.
+
+     {player.name}: It's not a trick. He really choked!
+
+     Player: What are you going to do? If you helps you might miss the caviar.
+
+     {player.name}: This time, there's only one choice.
+    ''')
+    
+    sleep(0.5)
+    print(f'''
+    {player.name} helps him.
+     Upon arriving in the kitchen, the delicacy has already been served.
+    ''')
+    
+    sleep(0.5)
+    print_slow('''
+    Host: And now, for the main course, I present the Beluga caviar.
+    Bon apetit! 
+    Hã???
+    ''')
+    print('The caviar is not in the tray. \n')
+    print_slow('Host: The Beluga! Where did it go?')
+
+    sleep(1)
+    clear_screen()
+    print(f'''
+    {player.name}escapes and is walking down the street talking to the
+     Countess Cleo by video call.
+     ''')
+    print_slow(f'''
+     {player.name}: Caviar served, ma'am.
+
+     Countess Cleo: How rude. Out of the cans, left the delicacy exposed.
+
+     {player.name}: You wanted the caviar. I delivered.
+
+     Countess Cleo: It's true. But now they can only be eaten for one day.
+     And I can't consume a hundred cans of caviar in a day.
+     Dr Bellum, activate the...whatever the name of this is today.
+
+    {player.name}: NO! 
+    ''')
+    
+    sleep(0.5)
+    print(f'''
+    Guardas surgem na prisão onde os amigos de {player.name} estão. 
+    Eles tentam lutar mas é em vão. Suas mentes são apagadas.''')
+    
+    sleep(1)
+    clear_screen()
+    print_slow('''
+    Narradora: O que é isso? Zac e Ivy acabaram com as mentes apagadas? 
+    Inaceitável! Vou reabrir esse caso para que você possa rever 
+    as escolhas que fez. 
+    ''')
+    sleep(1)
+    print('''
+    Você irá retornar para a última escolha e poderá
+    tentar um caminho diferente''')
+    sleep(2)
+    return steel_caviare(player) #Used to be Bad Ending 5
 
 
-def run():
-    return vile_safebox()
+def run(player):
+    clear_screen()
+    print(f'{player.name} leaves the kitchen with a cart with caviar')
+    print_slow(f'''
+     Waitress yells from the kitchen: Mademoiselle, stop!
+     The caviar needs to be plated!
 
+     Host: Get her!
 
-def vile_safebox():
-    text = '''
-    Você irá resgatar seus amigos agora ou roubar mais uma vez?
+     {player.name}: I prefer the dramatic output.
+     ''')
+    print(f'''
+     {player.name} grabs the caviar, kicks the cart, and jumps the glider.
+     ''')
 
-    [1] Resgatar Equipe
-    [2] Ir para próxima missão
+    sleep(0.5)
+    clear_screen()
+    print(f'{player.name} calls Countess Cleo.')
+    print_slow(f'''
+    {player.name}: I got the Beluga babies.
 
-    '''
+     Countess Cleo: Please wait for further instructions.
+     ''')
+    print(f'''
+     {player.name} chats with Player without Countess Cleo being able to hear.
+     ''')
+    print_slow(f'''
+     {player.name}: Player, any leads on Zac and Ivy?
+
+     Player: Not yet. I'm looking but nothing yet.
+     Stay on call with Countess Cleo for a few more seconds,
+     I'm trying to track down. ''')
+
+    sleep(0.5)
+    print('Countess Cleo looks stressed on the call.')
+    print_slow(f'''
+     Countess Cleo: Talking to anyone else, {player.name}?
+     Apparently I'm disturbing something.
+     You must have matters more important than your team's life.
+
+     {player.name}: None of that, Countess!
+     I'm just in awe of the sophistication of your look today.
+
+     Player: {player.name}, I found a sign!
+     Searching for V.I.L.E hideouts in the Arctic Circle.
+     I found one. What do you want to do?
+    ''')
+    
+    sleep(2)
+    clear_screen()
+    text = f'''
+    {player.nome}: I can try to rescue my team now or I can steal
+     one last time. A new mission can be risky, but it can also be 
+     a chance to keep up appearances until I get  to recover my team.
+
+     Do I start a risky rescue mission, or steal for the last time?
+
+     [1] Rescue Team
+     [2] Steal one last time
+    
+     Your choice: '''
+    
     if check_input(text, [1, 2]) == 1:
-        return rescue_team()
+        sleep(1)
+        return rescue_team(player)
     else:
-        return steel_again()
+        sleep(1)
+        from modules.acts_pt import act_2_m2
+        return act_2_m2.start_m2(player) #Used to be Bad Ending 4
 
 
-def rescue_team():
-    return endings.good_ending_1()
-
-
-def steel_again():
-    return endings.bad_ending_4()
+def rescue_team(player):
+    clear_screen()
+    sleep(1)
+    return endings.good_ending_1(player) #Must be Act3a or Act3b
