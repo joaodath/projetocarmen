@@ -5,7 +5,7 @@ from modules.extras import check_input, check_input_en
 
 class Character():
     def __init__(self, name='Carmen Sandiego', language=2, help_tigress=False,
-                trust_julia=False):
+                trust_julia=False, missions_count=0):
         self.__name = name
         self.__language = language
         self.__energy = 3
@@ -13,6 +13,7 @@ class Character():
         self.__lucky = 3
         self.__help_tigress = help_tigress
         self.__trust_julia = trust_julia
+        self.__missions_count = missions_count
 
     def create_character(self):
         if self.__language == 2:
@@ -107,3 +108,11 @@ class Character():
             self.__trust_julia = bool(False)
         elif value == 1 or value == '1':
             self.__trust_julia = bool(True)
+    
+    @property
+    def missions_count(self):
+        self.__missions_count
+
+    @missions_count.setter
+    def missions_count(self):
+        self.__missions_count += 1
