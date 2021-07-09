@@ -46,7 +46,7 @@ def party(player):
     Should I dance or go ahead with the plan?
 
     [1] To dance
-    [2] Refuse to dance
+    [2] To refuse the dance
 
     Your choice: '''
 
@@ -60,8 +60,13 @@ def party(player):
 
 def dance(player):
     print_slow(f'''
+    ------------
     {player.name} participates in a beautiful dance with the Host of the Party.
     This helps her blend in on the spot.
+    Persuação: +{player.persuasion} [+1]
+    Energia: +{player.energy} [-1]
+    ------------
+    .....
     ''')
     clear_screen()
     sleep(1)
@@ -74,6 +79,13 @@ def refuse_dance(player):
     tango...
 
     The Host cordially says goodbye and leaves.
+    ------------
+    Oops! Sometimes it's good to make some sacrifices
+    to blend in place...
+
+    Persuação: +{player.persuasion} [-1]
+    ------------
+    ....
     ''')
     clear_screen()
     sleep(1)
@@ -89,8 +101,6 @@ def steel_caviare(player):
     {player.nome}: I saw the roe.
     
     Player: How will you get it?
-    
-         
     ''')
     text = f'''
     {player.name}: I can hide and sneak out,
@@ -196,20 +206,20 @@ def hide(player):
     
     sleep(0.5)
     print(f'''
-    Guardas surgem na prisão onde os amigos de {player.name} estão. 
-    Eles tentam lutar mas é em vão. Suas mentes são apagadas.''')
+    Guards appear at the prison where {player.name}'s friends are.
+    They try to fight but it's in vain. Their minds are erased.''')
     
     sleep(1)
     clear_screen()
     print_slow('''
-    Narradora: O que é isso? Zac e Ivy acabaram com as mentes apagadas? 
-    Inaceitável! Vou reabrir esse caso para que você possa rever 
-    as escolhas que fez. 
+    Narrator: What is this? Zac and Ivy ended up with their minds erased?
+    Unacceptable! I'll reopen this case so you can review
+    the choices you made.
     ''')
     sleep(1)
     print('''
-    Você irá retornar para a última escolha e poderá
-    tentar um caminho diferente''')
+    You will return to the last choice and you will be able to
+    try a different path''')
     sleep(2)
     return steel_caviare(player) #Used to be Bad Ending 5
 
