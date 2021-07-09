@@ -1,6 +1,6 @@
 # Projeto Carmen - Choose your own adventure
 [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/joaodath/projetocarmen)
-[!https://img.shields.io/tokei/lines/github/joaodath/projetocarmen]
+[![Lines of Code](https://img.shields.io/tokei/lines/github/joaodath/projetocarmen)]
 [!https://img.shields.io/github/directory-file-count/joaodath/projetocarmen]
 [!https://img.shields.io/github/repo-size/joaodath/projetocarmen]
 
