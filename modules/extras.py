@@ -52,7 +52,7 @@ def clear_screen():
 def check_sucess(value):
     dice = randint(1, 6)
 
-    if dice <= value:
-        return True
-    else:
+    if dice >= value:
         return False
+    else:
+        return True
