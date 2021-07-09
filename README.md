@@ -1,8 +1,8 @@
 # Projeto Carmen - Choose your own adventure
 [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/joaodath/projetocarmen)
-[Lines of Code](https://img.shields.io/tokei/lines/github/joaodath/projetocarmen)
-[Number of Files](https://img.shields.io/github/directory-file-count/joaodath/projetocarmen)
-[Repo Size](https://img.shields.io/github/repo-size/joaodath/projetocarmen)
+[!Lines of Code](https://img.shields.io/tokei/lines/github/joaodath/projetocarmen)
+[!Number of Files](https://img.shields.io/github/directory-file-count/joaodath/projetocarmen)
+[!Repo Size](https://img.shields.io/github/repo-size/joaodath/projetocarmen)
 
 **Projeto de Conclusão do Módulo 1 - Blue EdTech**
 
