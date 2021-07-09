@@ -82,7 +82,7 @@ def refuse_dance(player):
 
     print_slow(f'''
     {player.name} : Obrigado, mas valsa não é minha praia. Se quiser dançar
-    tang...
+    tango...
 
     O Anfitrião se despede cordialmente e vai embora.
     
