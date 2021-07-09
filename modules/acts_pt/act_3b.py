@@ -1,3 +1,4 @@
+from modules.acts_pt import endings
 from modules.extras import print_slow, clear_screen
 from time import sleep
 
@@ -80,15 +81,7 @@ def ending_trusted_julia(player):
     print(f'{player.name} devolve os itens que roubou para Julia.')
 
     sleep(2)
-    print('Fim de Jogo. Todos foram salvos. Você ganhou!')
-    
-    sleep(2)
-    clear_screen()
-    print_slow(f'''
-    Narradora: Um passeio de helicóptero para todo mundo! Parabéns, agente! 
-    Você derrotou a V.I.L.E. dessa vez. Mas mantenha-se vigilante. 
-    Nunca se sabe quando podem atacar novamente.
-    ''')
+    endings.good_ending_3()
 
     sleep(10)
     print('Auto-destruição em 3')
@@ -133,16 +126,8 @@ def ending_not_trusted_julia(player):
     Os agentes da V.I.L.E. capturam {player.name} na saída da balsa usando 
     dardos tranquilizantes.
     ''')
-    print_slow(f'''
-    Maelstrom: Parabéns por cumprir suas missões com excelência. 
-    A doutora, a condessa e a treinadora já estão curtindo seus presentes. 
-    O que significa que está na hora do meu presente. 
-    Agora você vai roubar para a V.I.L.E. como foi treinada. Para todo sempre!
-    ''')
-    print(f'''
-    {player.name} e sua equipe têm as mentes apagadas. 
-    Fim de jogo. Você perdeu.
-    ''')
+    sleep(4)
+    endings.bad_ending_6()
     sleep(10)
     print('Auto-destruição em 3')
     sleep(1)

@@ -306,7 +306,7 @@ def steal_statue(player):
     Eu posso passar de fininho pela Tigresa ou posso falar com ela e 
     ver se entrega onde eles podem estar mantendo Zack e Ivy.
     ''')
-    
+
     sleep(4)
     text = f'''  
     Passar de fininho ou bater um papinho? 
@@ -414,7 +414,7 @@ def tunnel_soldier(player):
     
     {player.name}: Só dessa vez eu poderia ajudar a Tigresa. Ou, eu posso 
     deixar que ela se vire para sair. ''')
-    
+
     sleep(3)
     text = f''' 
     Enfim, é a gata aqui que está no comando agora.
@@ -478,7 +478,7 @@ def leave_tigress(player):
     sleep(3)
     print('''\n
     Lembrete: Tigresa vai se lembrar que você não a ajudou a escapar.\n''')
-    
+
     sleep(1)
     print_slow(f'''
     Tigresa: Volta aqui! Tem insetos nesse buraco!
@@ -542,7 +542,7 @@ def security_officer(player):
 
     {player.name}: Posso pular e pegar carona com a estátua ou me camuflar 
     e me esconder com os guerreiros.     ''')
-    
+
     sleep(3)
     text = f'''
     Pular ou camuflar?
@@ -688,12 +688,10 @@ def choose_act_two(player):
     Sua escolha: '''
 
     if check_input(text, [1, 2]) == 1:
-        player.missions_count
         from modules.acts_pt import act_2_m1
         sleep(1)
         return act_2_m1.start_m1(player)
     else:
-        player.missions_count
         from modules.acts_pt import act_2_m2
         sleep(1)
         return act_2_m2.start_m2(player)

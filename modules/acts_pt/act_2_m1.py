@@ -6,7 +6,9 @@ from time import sleep
 
 
 def start_m1(player):
+    player.missions_up(1)
     clear_screen()
+
     sleep(2)
     print_slow(f'''
     {player.name}: Está bem condessa Cleo. O que seu coração sombrio deseja? 
@@ -82,6 +84,7 @@ def dance(player):
 
 
 def refuse_dance(player):
+    clear_screen()
     player.persuasion_op(-1)
 
     print_slow(f'''
@@ -104,7 +107,11 @@ def refuse_dance(player):
 
 
 def talking_with_julia(player):
-    print(f'{player.name} é abordada por outra agente da ACME.')
+    clear_screen()
+    print(f'''
+    {player.name} é abordada por outra agente da ACME.''')
+    sleep(2)
+
     print_slow(f'''
     Julia: {player.name}?
 
@@ -127,12 +134,14 @@ def talking_with_julia(player):
 
     Player: Podemos confiar na Julia?
     ''')
+    sleep(3)
 
+    clear_screen()
     text = f'''
-    {player.name}: Já me aliei a ela antes. 
+    {player.name}: ~ Já me aliei a ela antes. 
     Confiar nela pode funcionar de novo. 
     Mas, se a V.I.L.E souber que estou de conluio com a ACME, 
-    quem sabe o que farão? 
+    quem sabe o que farão? ~
 
     [1] Confiar na Júlia
     [2] Enrolar a Júlia
@@ -147,6 +156,7 @@ def talking_with_julia(player):
 
 
 def trust_julia(player):
+    clear_screen()
     print_slow(f'''
     {player.name}: Julia, escuta. 
     Sou a agente enviada para roubar o caviar Beluga. 
@@ -159,19 +169,22 @@ def trust_julia(player):
 
     Julia: Que sejam bons motivos, Srta Santa Rosa. 
     ''')
-    print('Júlia vai se lembrar que você confiou nela.')
+    print('''
+    Júlia vai se lembrar que você confiou nela.''')
     player.trust_julia = 1
-    sleep(2)
+    sleep(3)
     return steel_caviare(player)
 
 
 def not_trust_julia(player):
+    clear_screen()
     print_slow(f'''
     {player.name}: Júlia, escuta. Você tem razão em estar desconfiada. 
     Preciso te mostrar uma coisa.
     ''')
-    print(f'{player.name} segue para as escadas com Júlia.')
-    sleep(1)
+    print(f'''
+    {player.name} segue para as escadas com Júlia.''')
+    sleep(2)
     print_slow(f'''
     {player.name}: A V.I.L.E. está de prontidão no telhado agora. 
     Temos que agir rápido! Anda! Não temos muito tempo!
@@ -180,13 +193,16 @@ def not_trust_julia(player):
     Júlia tenta chamar reforços usando sua caneta espiã mas {player.name} 
     toma de sua mão rapidamente quando ela passa pela porta que dá no telhado.
     ''')
-
-    sleep(1)
-    print(f'{player.name} tranca Júlia no telhado.')
-    print_slow(f'{player.name}: Foi mal, Júlia. Sério mesmo.')
-    print('Júlia vai se lembrar que você não confiou nela.')
-    player.trust_julia = 0
+    sleep(3)
+    print(f'''
+    {player.name} tranca Júlia no telhado.''')
     sleep(2)
+    print_slow(f'''
+    {player.name}: Foi mal, Júlia. Sério mesmo.''')
+    print('''
+    Júlia vai se lembrar que você não confiou nela.''')
+    sleep(2)
+    player.trust_julia = 0
     return steel_caviare(player)
 
 
@@ -209,7 +225,8 @@ def steel_caviare(player):
 
     clear_screen()
     text = f'''
-    Disfarço e escondo o caviar ou roubo e saio correndo?
+    Me Disfarço de garçom e escondo o caviar ou simplesmente pego o caviar
+    e saio correndo?
     
     [1] Disfarçar e Capturar
     [2] Roubar e Correr
@@ -260,7 +277,7 @@ def hide(player):
     foge furtivamente. Após sair da festa, entra em contato com a 
     Condessa Cleo.
     ''')
-    
+
     sleep(2)
     clear_screen()
     print_slow(f'''
@@ -365,7 +382,7 @@ def steel_again(player):
     print(f'''
     {player.name} conversa com Player sem que Condessa Cleo consiga ouvir.
     ''')
-    sleep(2)
+    sleep(3)
 
     print_slow(f'''
     {player.name}: Player, alguma pista de Zac e Ivy? 
@@ -374,12 +391,12 @@ def steel_again(player):
     Fique na chamada com a Condessa Cleo por mais alguns segundos,
     estou tentando rastrear.
     ''')
-    sleep(1)
+    sleep(2)
 
     print('''
     Condessa Cleo parece estressada na chamada.
     ''')
-    sleep(2)
+    sleep(3)
 
     print_slow(f'''
     Condessa Cleo: Conversando com mais alguém, {player.name}?
@@ -411,11 +428,18 @@ def steel_again(player):
 
     if check_input(text, [1, 2]) == 1:
         sleep(1)
-        player.missions_count
         from modules.acts_pt import act_3a
-        return act_3a.start_3a(player) #Used to be a Good Ending
+        return act_3a.start_3a(player)  # Used to be a Good Ending
     else:
-        sleep(1)
-        player.missions_count
-        from modules.acts_pt import act_2_m2
-        return act_2_m2.start_m2(player)  # Used to be Bad Ending 4
+        if player.missions_count() == 2:
+            clear_screen()
+            print_slow(f'''
+            Todas as missões já foram realizadas. Prosseguindo para o Resgate de
+            seus amigos...
+
+            ''')
+            from modules.acts_pt import act_3a
+            return act_3a.start_3a(player)
+        else:
+            from modules.acts_pt import act_2_m2
+            return act_2_m2.start_m2(player)  # Used to be Bad Ending 4

@@ -2,17 +2,19 @@ from modules.acts_pt import endings
 from modules.extras import print_slow, check_input, clear_screen
 from time import sleep
 
-#Starts Act 02 from Mission 02
+# Starts Act 02 from Mission 02
+
+
 def start_m2(player):
-    clear_screen()
+    player.missions_up(1)
     return in_the_lab(player)
 
 
 def in_the_lab(player):
     clear_screen()
-    #Storytelling
+    # Storytelling
     print_slow(f'''
-    {player.nome} O que você quer Dra Bellum? Códigos de lançamentos?
+    {player.name} O que você quer Dra Bellum? Códigos de lançamentos?
     Armas Biológicas? Uma máquina de repetição de vídeos de gatos?
 
     Dra Bellum - Eu quero que me traga um osso, e é por isso que 
@@ -26,18 +28,20 @@ def in_the_lab(player):
 
     {player.name}: Player, eu vou para Hell Creek.
     ''')
-    sleep(1)
-    clear_screen() 
+    sleep(2)
+    clear_screen()
     print_slow(''' 
     Player - Montana significa montanha em espanhol. Há um bilhão de anos, 
     muitos dinossauros vagaram por Hell Creek.
     ''')
-
     sleep(1)
+
     print(f'''
     {player.name} chega à Hell Creek e está observando o 
     sítio arqueológico de longe. 
     ''')
+    sleep(3)
+
     print_slow(f'''
     {player.name} - Osso do quadril, osso da coxa. 
     Onde está afinal esse T-Rex? 
@@ -53,10 +57,14 @@ def in_the_lab(player):
     
     {player.name}: Parece que vamos fazer uma visitinha ao laboratório.
     ''')
-
     sleep(1)
+
     clear_screen()
-    print(f'Dra Bellum liga para {player.name}.')
+
+    print(f'''
+    Dra Bellum liga para {player.name}.''')
+    sleep(3)
+
     print_slow(f'''
     Dra Bellum: Tic Tac Srta {player.name}. Você está em Montana a tarde toda 
     e ainda não conseguiu o osso do dinossauro. 
@@ -71,10 +79,13 @@ def in_the_lab(player):
     Dra Bellum: Pensei que estivesse brincando. Muito bem. 
     Vou enviar El Topo para ajudar. 
     ''')
-    
     sleep(2)
+
     clear_screen()
+
     print(f'{player.name} chega ao laboratório')
+    sleep(3)
+
     print_slow(f'''
     {player.name}: Que laboratório é esse? 
 
@@ -83,24 +94,30 @@ def in_the_lab(player):
 
     {player.name}: O osso está lá dentro. El Topo está atrasado.
     ''')
-    
     sleep(1)
-    print('El Topo aparece saindo de dentro de um túnel de esgoto.')
+
+    print('''
+    El Topo aparece saindo de dentro de um túnel de esgoto.''')
+    sleep(3)
+
     print_slow(f'''
     El Topo: Perdão pelo atraso. Estava pesquisando possíveis rotas de fuga. 
     
     {player.name}: Vamos acabar logo com isso. El Topo, você me dá cobertura.
     Player, me guie.
     ''')
-    
     sleep(1)
+
     print(f'''
     {player.name} está entrando no laboratório.
     El Topo avisa que a ACME já está no lugar.
     ''')
+    sleep(3)
+
+    clear_screen()
 
     text = '''
-    Você irá se esconder da ACME ou fugir com o osso?
+    Você irá se esconder da ACME ou correr para roubar o osso?
 
     [1] Esconder
     [2] Fugir
@@ -115,36 +132,45 @@ def in_the_lab(player):
 
 
 def hide(player):
+    print_slow(f'''
+    {player.name}: Droga! Perdi a oportunidade de capturar o osso!
+
+    {player.name} recebe uma ligação da Dra Bellum.
+
+    Dra Bellum: Ora ora. Já lhe dei muitas oportunidades. Dessa vez, será
+    sua última!
+
+    {player.name}: Não!''')
+
     clear_screen()
     return endings.bad_ending_3(player)
 
 
 def run(player):
-    sleep(1)
     clear_screen()
-    print(f'''')
+
+    print(f''''
     {player.name} corre para pegar o osso.
     ''')
+    sleep(3)
 
-    sleep(1)
     print(f'''
     Ela encontra o osso e consegue fugir com a ajuda de El Topo. 
     {player.name} liga para Dra Bellum.
     ''')
-    
-    sleep(1)
+    sleep(3)
+
     print_slow(f'''
     {player.name}:O osso está comigo. 
     Dra Bellum: Fantástico. Entrarei em contato para maiores informações. 
     ''')
+    sleep(1)
+
     return vile_safebox(player)
 
 
 def vile_safebox(player):
     clear_screen()
-    #Storytelling
-    sleep(1)
-
 
     print_slow(f'''
     {player.name}: Player, alguma pista de onde está Zack e Ivy?
@@ -158,8 +184,10 @@ def vile_safebox(player):
     mas também pode ser uma chance de manter as aparências até conseguir
     recuperar a equipe. ~
     ''')
-       
     sleep(1)
+
+    clear_screen()
+
     text = '''
     Você irá resgatar seus amigos agora ou roubar mais uma vez?
 
@@ -181,6 +209,12 @@ def rescue_team(player):
 def steel_again(player):
     clear_screen()
     if player.missions_count == 2:
+        clear_screen()
+        print_slow(f'''
+    Todas as missões já foram realizadas. Prosseguindo para o Resgate de
+    seus amigos...
+
+        ''')
         from modules.acts_pt import act_3b
         return act_3b.start_3b(player)
     else:
