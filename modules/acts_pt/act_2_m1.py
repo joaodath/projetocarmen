@@ -7,7 +7,22 @@ from time import sleep
 
 def start_m1(player):
     clear_screen()
-    sleep(1)
+    print(f'''
+    Após a missão em Xangai, {player.name} recebe uma ligação da V.I.L.E''')
+    sleep(2)
+
+    print_slow(f'''
+    {player.name}: Está bem condessa Cleo. O que seu coração sombrio deseja? 
+    Condessa Cleo: Para minha missão, quero que roube o último lote de um 
+    caviar Beluga. Será servido numa festa de caridade em Mônaco. 
+
+    Player: Localizado na Riviera Francesa, Mônaco é o segundo 
+    menor país do mundo. A festa será num luxuoso hotel em Monte Carlo.
+    
+    {player.name} viaja para o local, visando realizar a tarefa proposta.
+    ''')
+
+    sleep(2)
     return party(player)
 
 
@@ -15,36 +30,25 @@ def party(player):
     clear_screen()
     # Storytelling
     print(f'''
-    Após a missão em Xangai, {player.name} recebe uma ligação da V.I.L.E''')
-    print_slow(f'''
-    {player.name}: Está bem condessa Cleo. O que seu coração sombrio deseja? 
-    Condessa Cleo: Para minha missão, quero que roube o último lote de um 
-    caviar Beluga. Será servido numa festa de caridade em Mônaco. ''')
-    sleep(1)
-    clear_screen()
-    print_slow(f'''
-    Player: Localizado na Riviera Francesa, Mônaco é o segundo 
-    menor país do mundo. A festa será num luxuoso hotel em Monte Carlo.
-
-    {player.name}: Vou me misturar, localizar as latas, e depois roubá-las. 
-    ''')
-    print(f'''
     {player.name} chega à festa. 
-    O anfitrião a vê e se dirige a seu encontro''')
+    O anfitrião a vê e se dirige a seu encontro.''')
 
-    sleep(1)
+    sleep(2)
     print_slow(f'''
     Anfitrião da Festa: Me daria a honra dessa dança, Srta...?
 
     {player.name}: Santa Rosa! Srta. Santa Rosa.
 
     Anfitrião da Festa: Me daria a honra dessa dança, Srta. Santa Rosa?
-    ''')
-    text = f'''
-    {player.name}: Estou em missão, então deveria me concentrar e recusar. 
-    Mas aceitar a dança pode ser o melhor jeito de me misturar e 
-    chegar à cozinha.
 
+    {player.name}: ~ Estou em missão, então deveria me concentrar e recusar. 
+    Mas aceitar a dança pode ser o melhor jeito de me misturar e 
+    chegar à cozinha. ~
+    ''')
+    sleep(3)
+
+    clear_screen()
+    text = f'''
     Devo dançar ou prosseguir com o plano?
 
     [1] Dançar
@@ -61,19 +65,22 @@ def party(player):
 
 
 def dance(player):
+    clear_screen()
     player.persuasion_op(+1)
     player.energy_op(-1)
 
     print_slow(f'''
-    {player.name} participa de uma bela dança com o Anfitrião da Festa.
-    Isso lhe ajuda a se misturar no local.
+    ------------
+    Participar de uma bela dança com o Anfitrião da Festa foi uma ótima decisão.
+    Entretanto, fazer isso lhe custou algumas coisinhas.
 
     Persuação: +{player.persuasion} [+1]
     Energia: +{player.energy} [-1]
+    ------------
+    .....
     ''')
+    sleep(3)
 
-    clear_screen()
-    sleep(2.5)
     return steel_caviare(player)
 
 
@@ -85,12 +92,16 @@ def refuse_dance(player):
     tango...
 
     O Anfitrião se despede cordialmente e vai embora.
-    
-    Persuação: +{player.persuasion} [-1]
-    ''')
 
-    clear_screen()
-    sleep(2.5)
+    ------------
+    Opa! As vezes é bom realizar alguns sacrificios para se misturar no local...
+
+    Persuação: +{player.persuasion} [-1]
+    ------------
+    ....
+    ''')
+    sleep(3)
+
     return steel_caviare(player)
 
 
@@ -99,17 +110,20 @@ def steel_caviare(player):
     print(f'''
     {player.name} observa dois garçons indo para a cozinha.
     ''')
+    sleep(2)
 
     print_slow(f'''
     {player.name}: Avistei as ovas. 
     
-    Player: Como você vai pegar? 
-    ''')
+    Player: Como você vai pegar?
 
-    text = f'''
     {player.name}: Posso esconder e sair furtivamente, 
     ou pegar e sair correndo.
-    
+    ''')
+    sleep(3)
+
+    clear_screen()
+    text = f'''
     Disfarço e escondo o caviar ou roubo e saio correndo?
     
     [1] Disfarçar e Capturar
@@ -118,24 +132,28 @@ def steel_caviare(player):
     Sua escolha: '''
 
     if check_input(text, [1, 2]) == 1:
+        clear_screen()
 
         print_slow(f'''
+    ------------
     Ótima escolha! Entretanto, você precisará de sorte para o disfarce ser de
     acordo com o planejado.
 
     Sorte: +{player.lucky}
-
+    ------------
     ....
         ''')
+        sleep(2)
 
         if check_sucess(player.lucky) == True:
             sleep(1)
             return hide(player)
         else:
-            print(f'''
+            clear_screen()
+            print_slow(f'''
     Infelizmente o disfarce não deu muito certo... Um garçom reconheceu você!
             ''')
-            sleep(1)
+            sleep(3)
             return run(player)
     else:
         sleep(1)
@@ -164,89 +182,32 @@ def hide(player):
 
     Carmen: Não!
     ''')
-    sleep(1)
-    print(f'''
-    {player.name} se veste de garçonete.
-    Ela observa o mímico da V.I.L.E comendo algo.
-    ''')
 
-    sleep(1)
-    print_slow(f'''
-    {player.name}: Está fora do personagem. Devia comer petiscos invisíveis.
-    ''')
-
-    sleep(0.5)
-    print('O homem começa a passar mal.')
-
-    sleep(0.5)
-    print_slow(f'''
-    {player.name}: Acho que o mímico não está bem.
-
-    Player: Não estou surpreso. Mímicos não tem graça. 
-
-    {player.name}: Não é truque. Ele engasgou mesmo!
-
-    Player: O que você vai fazer? Se for ajudar, pode perder o caviar.
-
-    {player.name}: Dessa vez, só tem uma escolha. 
-    ''')
-
-    sleep(0.5)
-    print(f'''
-    {player.name} o ajuda.
-    Ao chegar na cozinha, a iguaria já foi servida.
-    ''')
-
-    sleep(0.5)
-    print_slow('''
-    Anfitrião: E agora, como prato principal, apresento o caviar Beluga.
-    Bon apetit! 
-    Hã???
-    ''')
-    print('O caviar não está na bandeja. \n')
-    print_slow('Anfitrião: O Beluga! Para onde foi?')
-
-    sleep(1)
-    clear_screen()
-    print(f'''
-    {player.name} escapa e está andando na rua falando com a 
-    Condessa Cleo por chamada de vídeo. 
-    ''')
-    print_slow(f'''
-    {player.name}: Caviar servido, senhora. 
-
-    Condessa Cleo: Que grosseria. Fora das latas, deixou a iguaria exposta. 
-
-    {player.name}: Você queria o caviar. Eu entreguei. 
-
-    Condessa Cleo: É verdade. Mas agora só podem ser comidos por um dia. 
-    E não posso  consumir cem latas de caviar em um dia. 
-    Dra Bellum, ative o...seja lá qual for o nome disso hoje.
-
-    {player.name}: NÃO! 
-    ''')
-
-    sleep(0.5)
+    sleep(2)
     print(f'''
     Guardas surgem na prisão onde os amigos de {player.name} estão. 
     Eles tentam lutar mas é em vão. Suas mentes serão apagadas.''')
+    sleep(3)
 
-    sleep(1)
     clear_screen()
     print_slow(f'''
-    OH NÃO! Parece que estamos em um grande impasse. Teste seus limites!
+    ------------
+    OH NÃO! Parece que estamos em um grande impasse. Hora de testar seus limites!
     Você tentará convencer a Condessa Cleo a salvar seus amigos.
     
     Persuasão: +{player.persuasion}
-    
+    ------------
     .....
     ''')
-    sleep(1)
+    sleep(2)
 
     if check_sucess(player.persuasion) == True:
-        print(f'''
-    {player.name}: Por favor! Permita que eu redima meus atos em uma nova missão.
-    Darei meu máximo e reconheço o erro que cometi.
+        clear_screen()
+        print_slow(f'''
+    {player.name} implora por uma nova oportunidade.
+
+    {player.name}: Por favor, me dê uma nova oportunidade! Prometo que darei
+    meu máximo em ser discreta. Afinal, sou a melhor opção que vocês possuem.
     
     Condessa Cleo afirma, relutante.
 
@@ -257,9 +218,12 @@ def hide(player):
         return steel_again(player)
 
     else:
+        clear_screen()
         print(f'''
-    {player.name}: Por favor! Permita que eu redima meus atos em uma nova missão.
-    Darei meu máximo e reconheço o erro que cometi.
+    {player.name} implora por uma nova oportunidade.
+
+    {player.name}: Por favor, me dê uma nova oportunidade! Prometo que darei
+    meu máximo em ser discreta. Afinal, sou a melhor opção que vocês possuem.
 
     Condessa Cleo: Não mesmo! Apenas uma tola confiaria em uma ladra. Continuem o
     procedimento!
@@ -269,9 +233,8 @@ def hide(player):
 
 
 def run(player):
-    player.energy_op(-1)
-
     clear_screen()
+
     print(f'''
     {player.name} sai da cozinha com um carrinho com o caviar
     ''')
@@ -287,15 +250,18 @@ def run(player):
     print(f'''
     {player.name} pega o caviar, chuta o carrinho e salta voo com o planador. 
     ''')
-
     sleep(3)
+
     clear_screen()
     print(f'{player.name} liga para Condessa Cleo.')
+    sleep(2)
+
     print_slow(f'''
     {player.name}: Peguei os bebês Beluga. 
 
     Condessa Cleo: Por favor, aguarde novas instruções. 
     ''')
+    sleep(2)
 
     return steel_again(player)
 
@@ -304,6 +270,8 @@ def steel_again(player):
     print(f'''
     {player.name} conversa com Player sem que Condessa Cleo consiga ouvir.
     ''')
+    sleep(2)
+
     print_slow(f'''
     {player.name}: Player, alguma pista de Zac e Ivy? 
 
@@ -311,10 +279,13 @@ def steel_again(player):
     Fique na chamada com a Condessa Cleo por mais alguns segundos,
     estou tentando rastrear.
     ''')
-    sleep(0.5)
+    sleep(1)
+
     print('''
     Condessa Cleo parece estressada na chamada.
     ''')
+    sleep(2)
+
     print_slow(f'''
     Condessa Cleo: Conversando com mais alguém, {player.name}?
     Pelo visto estou atrapalhando alguma coisa. 
@@ -325,17 +296,17 @@ def steel_again(player):
 
     Player: {player.name}, achei um sinal!
     Buscando esconderijos da V.I.L.E no Círculo Ártico. 
-    Encontrei um. O que quer fazer? 
-    ''')
+    Encontrei um. O que quer fazer?
 
-    sleep(2)
-    clear_screen()
-    text = f'''
-    {player.name}: Posso tentar resgatar minha equipe agora ou posso roubar
+    {player.name}: ~ Posso tentar resgatar minha equipe agora ou posso roubar
     para a V.I.L.E. uma última vez. Uma nova missão pode ser arriscada,
     mas também pode ser uma chance de manter as aparências até conseguir
-    recuperar a equipe.
+    recuperar a equipe. ~
+    ''')
+    sleep(3)
 
+    clear_screen()
+    text = f'''
     Começo uma arriscada missão de resgate, ou roubo pela última vez?
 
     [1] Resgatar Equipe
@@ -345,31 +316,8 @@ def steel_again(player):
 
     if check_input(text, [1, 2]) == 1:
         sleep(1)
-        return rescue_team(player)
+        return endings.good_ending_1(player)
     else:
         sleep(1)
         from modules.acts_pt import act_2_m2
         return act_2_m2.start_m2(player)  # Used to be Bad Ending 4
-
-
-def rescue_team(player):
-    player.lucky_op(+1)
-
-    print_slow(f'''
-    {player.name} optou por resgatar seus amigos! Entretanto, uma longa viagem
-    lhe espera e para que o resgate seja feito em segurança, é necessário
-    uma boa dose de sortee e energia. Hora de rodar os dados!
-
-    Sorte: +{player.lucky}
-    Energia: +{player.energy}
-    
-    .....
-    ''')
-
-    if check_sucess(player.lucky) == True and check_sucess(player.energy):
-        clear_screen()
-        sleep(1)
-        return endings.good_ending_1(player)
-    else:
-        from modules.acts_pt import act_2_m2
-        return act_2_m2.start_m2(player)

@@ -2,8 +2,6 @@ from modules.acts_pt import endings
 from modules.extras import print_slow, check_input, clear_screen, check_sucess
 from time import sleep
 
-# Starts the game from act 01
-
 
 def start(player):
     clear_screen()
@@ -34,8 +32,8 @@ def building(player):
     
     Player: Você pode entrar pelo último andar. Ou pelo primeiro andar.
     
-    {player.name}:~ Entrar pelo último andar certamente exigirá manobras 
-    arriscadas mas entrando pelo primeiro andar, posso enfrentar oposição. ~ 
+    {player.name}: ~ Entrar pelo último andar certamente exigirá manobras 
+    arriscadas mas entrando pelo primeiro andar, posso enfrentar oposição ~ 
     \n''')
     sleep(3)
 
@@ -73,7 +71,7 @@ def top_building(player):
 
     print(f'''
     {player.name} usa um laser para cortar o vidro da fachada 
-    do prédio e entrar. Ela cai no armário do zelador.
+    do prédio e entrar. Ela cai no armário do zelador.\n
     ''')
     sleep(3)
 
@@ -86,7 +84,7 @@ def top_building(player):
 
     print(f'''
     Player envia a rota para {player.name}.''')
-    sleep(2)
+    sleep(3)
 
     return text_vile_vault(player)
 
@@ -96,9 +94,9 @@ def bottom_building(player):
     # Storytelling
     print(f'''
     {player.name} está subindo para o andar do cofre 
-    usando o vão do elevador.''')
+    usando o vão do elevador.\n''')
 
-    sleep(2)
+    sleep(3)
     print_slow(f'''
     Player: Sabe mesmo como entrar com estilo, {player.name}!
 
@@ -107,8 +105,9 @@ def bottom_building(player):
 
     print(f'''
     {player.name} força a abertura da porta do elevador e 
-    dá de cara com seguranças. Ela luta e os vence.''')
+    dá de cara com seguranças. Ela luta e os vence.\n''')
     sleep(3)
+    player.energy_op(-1)
 
     print_slow(f'''
 
@@ -125,7 +124,7 @@ def bottom_building(player):
     
     Player envia a rota para {player.name}.
     ''')
-    sleep(1)
+    sleep(3)
 
     return text_vile_vault(player)
 
@@ -141,7 +140,7 @@ def text_vile_vault(player):
     no centro do salão do cofre. {player.name} entra e consegue ouvir 
     os líderes da V.I.L.E. falando.''')
 
-    sleep(2)
+    sleep(3)
     print_slow(f'''
     Maelstrom: Bem vinda, {player.name}! Por favor, fique à vontade. 
 
@@ -246,23 +245,23 @@ def rescue_team_vile_vault(player):
 
     if check_sucess(player.persuasion) == True:
         print_slow(f'''
-        {player.name}: Ok, Treinadora Blunt. Você me pegou nessa. Entretanto, eu sou
-        sua melhor escolha para o assalto. Eu aceito a proposta. Sem truques
-        dessa vez.
+    {player.name}: Ok, Treinadora Blunt. Você me pegou nessa. Entretanto, eu sou
+    sua melhor escolha para o assalto. Eu aceito a proposta. Sem truques
+    dessa vez.
 
-        Treinadora Brunt respira fundo, relutante.
+    Treinadora Brunt respira fundo, relutante.
 
-        Treinadora Brunt: OK... Você tem uma nova oportunidade. Espero que não a desperdice!
+    Treinadora Brunt: OK... Você tem uma nova oportunidade. Espero que não a desperdice!
         ''')
 
         return steal_statue(player)
     else:
         print_slow(f'''
-        {player.name}: Ok, Treinadora Blunt. Você me pegou nessa. Entretanto, eu sou
-        sua melhor escolha para o assalto. Eu aceito a proposta. Sem truques
-        dessa vez.
+    {player.name}: Ok, Treinadora Blunt. Você me pegou nessa. Entretanto, eu sou
+    sua melhor escolha para o assalto. Eu aceito a proposta. Sem truques
+    dessa vez.
 
-        Treinadora Brunt: Não cairei nessa ladainha novamente!
+    Treinadora Brunt: Não cairei nessa ladainha novamente!
         ''')
 
         return endings.bad_ending_1()  # Used to be Bad Ending 01
