@@ -25,23 +25,43 @@ def bad_ending_2():
 
 
 def bad_ending_3():
+    clear_screen()
     print_slow('''
-    Final Ruim 03: Missão da Dra. Bellum: A ACME leva o osso para um cofre seguro. Fim de Jogo.
+                                        GAME OVER: VOCÊ PERDEU
+            Optar por não roubar o osso no momento propício custou caro. A ACME levou o osso para um
+            cofre seguro, impossibilitando a realização do assalto. A mente de Zack e Ivy é apagada
+            e você perde o jogo.
     ''')
 
 
 def bad_ending_4():
+    clear_screen()
     print_slow('''
-    Final Ruim 04: Roubar mais uma vez pra VILE é uma emboscada. A V.I.L.E captura Carmen. Fim de Jogo.
+                                            GAME OVER: VOCÊ PERDEU
+            Não ajudar a Tigresa no inicio do jogo custou caro para você. A mente de Zack e Ivy é apagada
+            e você perde o jogo.
     ''')
 
 
 def bad_ending_5():
+    clear_screen()
     print_slow('''
                                             GAME OVER: VOCÊ PERDEU
             Puxa! Como o caviar foi aberto, a validade dele passou a ser de somente um dia. A Condessa Cleo
             se recusou a consumir, fazendo seus amgigos pagarem o pato pelo seu vacilo. A mente de Zack e Ivy
             é apagada e você perde o jogo.
+    ''')
+
+
+def bad_ending_6():
+    clear_screen()
+    print_slow('''
+                                            GAME OVER: VOCÊ PERDEU
+            Parabéns por cumprir suas missões com excelência.  A doutora, a condessa e a treinadora já estão 
+            curtindo seus presentes. O que significa que está na hora do meu presente. Agora você vai roubar
+            para  a V.I.L.E. como foi treinada. Para todo sempre!
+    
+                        Você e sua equipe têm as mentes apagadas. Fim de jogo. Você perdeu.
     ''')
 
 
@@ -51,4 +71,22 @@ def good_ending_1():
                                             GAME OVER: VOCÊ GANHOU
             Você optou por salvar seus amigos no melhor momento, e isso lhe garantiu uma vitória para casa.
             Zac e Ivy são salvos pacificamente por meio de sua aventura no Círculo Ártico. Parabéns!!
+    ''')
+
+
+def good_ending_2():
+    clear_screen()
+    print_slow('''
+                                            GAME OVER: VOCÊ GANHOU
+            Só sobremesas para todo mundo! Parabéns, agente!  Você derrotou a V.I.L.E. dessa vez. Mas
+            mantenha-se vigilante. Nunca se sabe quando podem atacar novamente.
+    ''')
+
+
+def good_ending_3():
+    clear_screen()
+    print_slow('''
+                                            GAME OVER: VOCÊ GANHOU
+                Um passeio de helicóptero para todo mundo! Parabéns, agente! Você derrotou a V.I.L.E. dessa
+                vez. Mas mantenha-se vigilante. Nunca se sabe quando podem atacar novamente.
     ''')

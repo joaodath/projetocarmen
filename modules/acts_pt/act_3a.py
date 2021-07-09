@@ -1,7 +1,10 @@
 from modules.extras import print_slow, clear_screen
+from modules.acts_pt import endings
 from time import sleep
 
-#Starts Act 3 Ending A
+# Starts Act 3 Ending A
+
+
 def start_3a(player):
     print(f'''
     {player.name} está num avião em direção ao esconderijo da V.I.L.E. no
@@ -41,7 +44,7 @@ def start_3a(player):
 
     if player.help_tigress == True:
         return end_helped_tigress(player)
-    else: 
+    else:
         return end_not_helped_tigress(player)
 
 
@@ -55,7 +58,7 @@ def end_helped_tigress(player):
     Considere como uma retribuição. Mas só dessa vez. 
     Quando eu te encontrar de novo, prepare-se!
     ''')
-    
+
     sleep(1)
     print(f'''
     {player.name} alcança sua equipe antes que tenham as mentes apagadas. 
@@ -69,15 +72,9 @@ def end_helped_tigress(player):
 
     Zack: Por que não?
     ''')
-    
-    sleep(2)
-    clear_screen()
-    print_slow(f'''
-    Narradora: Só sobremesas para todo mundo! Parabéns, agente! 
-    Você derrotou a V.I.L.E. dessa vez. Mas mantenha-se vigilante. 
-    Nunca se sabe quando podem atacar novamente.
-    ''')
 
+    sleep(2)
+    endings.good_ending_2()
     sleep(10)
     print('Auto-destruição em 3')
     sleep(1)
@@ -97,7 +94,7 @@ def end_not_helped_tigress(player):
     E eu queria ajuda para sair daquele buraco. 
     Parece que nenhuma de nós está conseguindo o que quer. 
     ''')
-    
+
     sleep(1)
     print(f'''
     Tigresa aciona a trava de segurança e uma grande porta de ferro 
@@ -113,7 +110,7 @@ def end_not_helped_tigress(player):
 
     sleep(2)
     clear_screen()
-    print('Fim de jogo. Você perdeu.')
+    endings.bad_ending_4()
     sleep(10)
     print('Auto-destruição em 3')
     sleep(1)

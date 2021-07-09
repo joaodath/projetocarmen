@@ -5,7 +5,7 @@ from modules.extras import check_input, check_input_en
 
 class Character():
     def __init__(self, name='Carmen Sandiego', language=2, help_tigress=False,
-                trust_julia=False, missions_count=0):
+                 trust_julia=False, missions_count=0):
         self.__name = name
         self.__language = language
         self.__energy = 3
@@ -87,6 +87,50 @@ class Character():
     def lucky_op(self, value):
         self.__lucky += value
 
+    def define_atributes(self):
+        print('''
+    Durante o jogo, você guiará a personagem em escolhas que afetam o resultado final
+    da partida. Tais escolhas levam em conta três atributos específicos:
+
+    - Persuasão (0-9)
+    - Sorte     (0-9)
+    - Energia   (0-9)
+        
+    Você tem 9 pontos disponíveis para distribuir entre tais atributos. Informe quantos pontos
+    irão para cada atributo no passo abaixo.\n\n
+        ''')
+
+        while True:
+            points = 9
+            p = int(input(f'''
+    Persuasão    ({points} pontos disponíveis): '''))
+            points -= p
+            s = int(input(f'''
+    Sorte        ({points} pontos disponíveis): '''))
+            points -= s
+            e = int(input(f'''
+    Energia      ({points} pontos disponíveis): '''))
+            points -= e
+            print('\n\n')
+
+            if (p + s + e) != 9:
+                print(f'''
+    Opa! Parece que os valores informados não são válidos.
+    Tente novamente!
+                ''')
+            else:
+                self.persuasion = p
+                self.lucky = s
+                self.energy = e
+
+                print(f'''
+    Valores cadastrados com sucesso! Seu personagem possui:
+    Persuasão    : {self.persuasion}
+    Sorte        : {self.lucky}
+    Energia      : {self.energy}
+                ''')
+                break
+
     @property
     def help_tigress(self):
         self.__help_tigress
@@ -97,7 +141,7 @@ class Character():
             self.__help_tigress = bool(False)
         elif value == 1 or value == '1':
             self.__help_tigress = bool(True)
-    
+
     @property
     def trust_julia(self):
         self.__trust_julia
@@ -108,11 +152,10 @@ class Character():
             self.__trust_julia = bool(False)
         elif value == 1 or value == '1':
             self.__trust_julia = bool(True)
-    
+
     @property
     def missions_count(self):
         self.__missions_count
 
-    @missions_count.setter
-    def missions_count(self):
-        self.__missions_count += 1
+    def missions_up(self, value):
+        self.__missions_count += value
