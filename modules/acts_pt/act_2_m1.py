@@ -7,10 +7,7 @@ from time import sleep
 
 def start_m1(player):
     clear_screen()
-    print(f'''
-    Após a missão em Xangai, {player.name} recebe uma ligação da V.I.L.E''')
     sleep(2)
-
     print_slow(f'''
     {player.name}: Está bem condessa Cleo. O que seu coração sombrio deseja? 
     Condessa Cleo: Para minha missão, quero que roube o último lote de um 
@@ -252,7 +249,7 @@ def hide(player):
     clear_screen()
 
     print(f'''
-    {player.name} se disfarça como garçom para capturar os caviares. 
+    {player.name} se disfarça como garçonete para capturar os caviares. 
     Entretanto um imprevisto acontece! Como houve um tempo decorrido 
     para o disfarce, os caviares já foram removidos de suas latas e empratados!
     ''')
@@ -267,17 +264,17 @@ def hide(player):
     sleep(2)
     clear_screen()
     print_slow(f'''
-    Carmen: O caviar está servido.
+    {player.name}: O caviar está servido.
 
     Condessa Cleo: Que grosseria! Fora das latas, deixou a iguaria exposta!
 
-    Carmen: Você queria ovas de peixe, eu entreguei.
+    {player.name}: Você queria ovas de peixe, eu entreguei.
     
     Condessa Cleo: Foi o que fez. Mas agora só vão durar um dia! 
     E não posso consumir cem latas de caviar em um dia. 
     Dra Bellum, ative o... seja lá qual for o nome disso hoje!
 
-    Carmen: Não!
+    {player.name}: Não!
     ''')
 
     sleep(2)
@@ -413,9 +410,12 @@ def steel_again(player):
     Sua Escolha: '''
 
     if check_input(text, [1, 2]) == 1:
+        sleep(1)
+        player.missions_count
         from modules.acts_pt import act_3a
         return act_3a.start_3a(player) #Used to be a Good Ending
     else:
         sleep(1)
+        player.missions_count
         from modules.acts_pt import act_2_m2
         return act_2_m2.start_m2(player)  # Used to be Bad Ending 4
