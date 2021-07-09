@@ -1,4 +1,4 @@
-from modules.acts_pt import endings
+from modules.acts_en import endings
 from modules.extras import print_slow, check_input, clear_screen
 from time import sleep
 
