@@ -11,7 +11,7 @@ def print_slow(str):
     for letter in str:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        sleep(0.04)
+        sleep(0.03)
 
 # This function checks if the answer is between the values that the system
 # is waiting for. If not, returns a warning in portuguese and waits for
