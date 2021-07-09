@@ -38,11 +38,17 @@ def bad_ending_4():
 
 def bad_ending_5():
     print_slow('''
-    Final Ruim 05: O caviar é aberto. A validade depois de aberto é de 1 dia. A Condessa Cleo se recusa a consumir todo o caviar em um dia. Fim do jogo.
+                                            GAME OVER: VOCÊ PERDEU
+            Puxa! Como o caviar foi aberto, a validade dele passou a ser de somente um dia. A Condessa Cleo
+            se recusou a consumir, fazendo seus amgigos pagarem o pato pelo seu vacilo. A mente de Zack e Ivy
+            é apagada e você perde o jogo.
     ''')
 
 
 def good_ending_1():
+    clear_screen()
     print_slow('''
-    Final bom 01: Ela tenta resgatar a equipe imediatamente e consegue. O jogo termina com Carmen vencedora!
+                                            GAME OVER: VOCÊ GANHOU
+            Você optou por salvar seus amigos no melhor momento, e isso lhe garantiu uma vitória para casa.
+            Zac e Ivy são salvos pacificamente por meio de sua aventura no Círculo Artigo. Parabéns!!
     ''')
