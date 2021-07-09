@@ -1,11 +1,13 @@
 from modules.acts_pt import endings
-from modules.extras import print_slow, check_input, clear_screen
+from modules.extras import print_slow, check_input, clear_screen, check_sucess
 from time import sleep
 
-#Starts the game from act 01
+# Starts the game from act 01
+
+
 def start(player):
     clear_screen()
-    #Storytelling
+    # Storytelling
     print_slow(f'''
     Player: O panorama de Xangai é composto por vários dos maiores 
     arranha-céus do mundo, incluindo uma das mais notórias 
@@ -17,26 +19,27 @@ def start(player):
     {player.name}: E os itens recém roubados da V.I.L.E. que estarão 
     neste cofre. Zack, Ivy, estão em posição?
 
-    Ivy: Todo o perímetro está coberto, {player.name}!
-    ''')
+    Ivy: Todo o perímetro está coberto, {player.name}!''')
+
     sleep(1)
     return building(player)
 
 
 def building(player):
     clear_screen()
-    #Storytelling
+    # Storytelling
     print_slow(f'''
     {player.name}: O prédio com certeza é cheio de seguranças. 
     Qual é a melhor rota até o cofre?
     
     Player: Você pode entrar pelo último andar. Ou pelo primeiro andar.
     
-    {player.name}: Entrar pelo último andar certamente exigirá manobras 
-    arriscadas mas entrando pelo primeiro andar, posso enfrentar oposição. 
-    
-    ''')
-    sleep(0.5)
+    {player.name}:~ Entrar pelo último andar certamente exigirá manobras 
+    arriscadas mas entrando pelo primeiro andar, posso enfrentar oposição. ~ 
+    \n''')
+    sleep(3)
+
+    clear_screen()
     text = f'''
     Para descobrir o que a V.I.L.E. está escondendo, 
     preciso entrar nesta torre.
@@ -49,91 +52,94 @@ def building(player):
     Sua escolha: '''
 
     if check_input(text, [1, 2]) == 1:
+        sleep(1)
         return top_building(player)
     else:
+        sleep(1)
         return bottom_building(player)
 
 
 def top_building(player):
-    sleep(0.5)
     clear_screen()
-    #Storytelling
+    # Storytelling
     print(f'''
     {player.name} chega ao topo de um prédio vizinho e 
     prepara sua tirolesa para alcançar o topo do prédio da V.I.L.E.
     ''')
-    
-    sleep(0.5)
+    sleep(3)
+
     print_slow(f'''
     {player.name}: Eu vou deslizando!''')
-    
-    sleep(0.5)
+
     print(f'''
     {player.name} usa um laser para cortar o vidro da fachada 
-    do prédio e entrar. Ela cai no armário do zelador.''')
-    
-    sleep(0.5)
+    do prédio e entrar. Ela cai no armário do zelador.
+    ''')
+    sleep(3)
+
     print_slow(f'''
     {player.name}: O armário do zelador???
 
     Player: Você pediu a rota mais “limpa”! 
 
-    {player.name}: Só mostra o caminho do cofre para eu limpar logo.
-    ''')
-    
-    sleep(0.5)
+    {player.name}: Só mostra o caminho do cofre para eu limpar logo.''')
+
     print(f'''
     Player envia a rota para {player.name}.''')
-    
-    sleep(0.5)
+    sleep(2)
+
     return text_vile_vault(player)
 
 
 def bottom_building(player):
     clear_screen()
-    
-    #Storytelling
-    sleep(0.5)
+    # Storytelling
     print(f'''
     {player.name} está subindo para o andar do cofre 
-    usando o vão do elevador.
-    ''')
+    usando o vão do elevador.''')
 
-    sleep(0.5)
+    sleep(2)
     print_slow(f'''
-    Player: Sabe mesmo como entrar com estilo, Vermelha!
+    Player: Sabe mesmo como entrar com estilo, {player.name}!
 
     {player.name}: Melhor que sorrir para as câmeras do elevador. 
-    Eu vou ter cuidado com o vão.
-    ''')
+    Eu vou ter cuidado com o vão.''')
 
-    sleep(0.5)
     print(f'''
     {player.name} força a abertura da porta do elevador e 
-    dá de cara com seguranças. Ela luta e os vence.
+    dá de cara com seguranças. Ela luta e os vence.''')
+    sleep(3)
+
+    print_slow(f'''
+
+    ------------
+    Vencer essa luta foi custosa!
+
+    Energia: +{player.energy} (-1)
+    ------------
+
     ''')
+
+    print_slow(f'''
+    {player.name}: Player, me guie. \n
     
+    Player envia a rota para {player.name}.
+    ''')
     sleep(1)
-    print_slow(f''' {player.name}: Player, me guie. \n''')
-    print(f'''Player envia a rota para {player.name}.''')
-    
-    sleep(0.5)
+
     return text_vile_vault(player)
 
 
 def text_vile_vault(player):
     clear_screen()
-    #Storytelling
+    # Storytelling
     print_slow(f'''
     {player.name}: Cofre localizado. Fácil demais…''')
 
-    sleep(0.5)
     print(f''' 
     O cofre está vazio, exceto por um pequeno tablet num pedestal 
     no centro do salão do cofre. {player.name} entra e consegue ouvir 
-    os líderes da V.I.L.E. falando.
-
-    ''')
+    os líderes da V.I.L.E. falando.''')
 
     sleep(2)
     print_slow(f'''
@@ -147,44 +153,36 @@ def text_vile_vault(player):
     Maelstrom: Você é sem dúvida a melhor ladra que já passou pelos 
     corredores da Academia V.I.L.E.. 
 
-    Condessa Cleo: Embora nós nunca tenhamos colhido os frutos de 
-    termos ensinado cada habilidade de roubo que você sabe.
-
     Dra. Bellum: Por tanto, hoje finalmente poderemos brincar 
     de “{player.name}: agente da V.I.L.E.”. 
 
-    {player.name}: Podemos pular para a parte que eu digo não? 
-    Porque não sei bem que parte desse último ano os impediu de 
-    compreender que eu NUNCA vou roubar para a V.I.L.E..
+    {player.name}: Podemos pular para a parte que eu digo não?
 
-    Treinadora Brunt: Oh, nem mesmo para salvar seus destemidos ajudantes?
-    ''')
-    
-    sleep(1)
-    print('''O telão mostra Ivy e Zack, da equipe em terra, 
-    amarrados em algum lugar difícil de entender onde é.''')
-    sleep(0.5)
+    Treinadora Brunt: Oh, nem mesmo para salvar seus destemidos ajudantes?''')
+
+    print('''
+    O telão mostra Ivy e Zack, da equipe em terra, amarrados em algum lugar
+    difícil de entender onde é.''')
+    sleep(3)
     return vile_vault(player)
 
+
 def vile_vault(player):
-    sleep(1)
     clear_screen()
     print_slow(f'''
     Dra. Bellum: Recuse-se a fazer o nosso jogo e eu juro que vamos apagar a memória deles e 
     iremos reprogramar sua equipe para que se tornem agentes da V.I.L.E.! 
 
-    Maelstrom: Então, você roubará para a gente ou serão eles?
-
     Player: {player.name}: achei a van do Zack e da Ivy numa câmera de rua. 
-    Está em movimento. Acha que consegue alcançar ela? 
+    Está em movimento. Acha que consegue alcançar ela?
+
+    {player.name}: ~ Posso tentar salvar o Zack e a Ivy agora, mas seria perigoso. 
+    Ou, posso aceitar roubar para a V.I.L.E. até descobrir um jeito de ter a minha equipe de volta. ~
     ''')
+    sleep(2)
 
-    sleep(1)
     clear_screen()
-    text = f'''  
-    {player.name}: Posso tentar salvar o Zack e a Ivy agora, mas seria perigoso. 
-    Ou, posso aceitar roubar para a V.I.L.E. até descobrir um jeito de ter a minha equipe de volta.
-
+    text = f'''
     O que eu faço?
     Preciso trazê-los de volta em segurança, de algum jeito. 
 
@@ -194,10 +192,10 @@ def vile_vault(player):
     Sua escolha: '''
 
     if check_input(text, [1, 2]) == 1:
-        sleep(1)
+        sleep(2)
         return rescue_team_vile_vault(player)
     else:
-        sleep(1)
+        sleep(2)
         return steal_statue(player)
 
 
@@ -205,43 +203,74 @@ def rescue_team_vile_vault(player):
     clear_screen()
     print(f'''
     {player.name} sai correndo do prédio da V.I.L.E. e pula usando o seu planador 
-    para seguir a van em movimento. \n ''')
-    
-    sleep(0.5)
-    print_slow(f'''{player.name}: Estou avistando a van. \n ''')
-    print(f'''{player.name} consegue pular e entrar na van, mas descobre que 
-    está sendo dirigida por controle remoto.''')
-    
-    sleep(0.5)
-    print_slow(f''' {player.name}: Player, não tem ninguém aqui. \n ''')
-    print('A tela do controle remoto acende e mostra os líderes da V.I.L.E. ')
+    para seguir a van em movimento.\n ''')
+    sleep(3)
 
-    sleep(0.5)
+    print_slow(f'''
+    {player.name}: Estou avistando a van. \n ''')
+
+    print(f'''
+    {player.name} consegue pular e entrar na van, mas descobre que 
+    está sendo dirigida por controle remoto.''')
+    sleep(3)
+
+    print_slow(f'''
+    {player.name}: Player, não tem ninguém aqui. \n ''')
+
+    print('''
+    A tela do controle remoto acende e mostra os líderes da V.I.L.E. ''')
+    sleep(3)
+
     print_slow(f''' 
     Treinadora Brunt : Ora, ora. Não te disse que ela seria teimosa demais 
     para aceitar nossa proposta?
 
-    Maelstrom: Sim, parece que eu lhe devo um jantar, Treinadora Brunt. \n ''')
-    print('''Zack e Ivy são mostrados na tela. A memória deles é apagada.  
-    Fim de jogo. \n ''')
-
-    sleep(1)
-    print_slow(f'''Narradora: Uh, isso não é bom. {player.name} merece outra 
-    chance de resgatar a sua equipe. E, felizmente, você pode ter essa 
-    segunda chance. Talvez ela possa roubar para a V.I.L.E. 
-    até conseguir passar a perna neles. 
+    Maelstrom: Sim, parece que eu lhe devo um jantar, Treinadora Brunt.
+    
+    Zack e Ivy são mostrados na tela. A memória deles será apagada em breve!
     ''')
-    sleep(1)
-    print('''
-    Você irá retornar para a última escolha e poderá
-    tentar um caminho diferente''')
     sleep(2)
-    return vile_vault(player) #Used to be Bad Ending 01
+
+    clear_screen()
+    print_slow(f'''
+    ------------
+    Carambas, isso não é bom! A situação agora é irreversível. Entretanto, como
+    último recurso, você utilizará sua persuasão para convencer a Treinadora
+    Brunt a não apagar a memória dos seus amigos.
+
+    Persuasão: +{player.persuasion}
+    ------------
+    ....''')
+
+    sleep(3)
+
+    if check_sucess(player.persuasion) == True:
+        print_slow(f'''
+        {player.name}: Ok, Treinadora Blunt. Você me pegou nessa. Entretanto, eu sou
+        sua melhor escolha para o assalto. Eu aceito a proposta. Sem truques
+        dessa vez.
+
+        Treinadora Brunt respira fundo, relutante.
+
+        Treinadora Brunt: OK... Você tem uma nova oportunidade. Espero que não a desperdice!
+        ''')
+
+        return steal_statue(player)
+    else:
+        print_slow(f'''
+        {player.name}: Ok, Treinadora Blunt. Você me pegou nessa. Entretanto, eu sou
+        sua melhor escolha para o assalto. Eu aceito a proposta. Sem truques
+        dessa vez.
+
+        Treinadora Brunt: Não cairei nessa ladainha novamente!
+        ''')
+
+        return endings.bad_ending_1()  # Used to be Bad Ending 01
 
 
 def steal_statue(player):
     clear_screen()
-    #Storytelling
+    # Storytelling
     print_slow(f'''
     {player.name}: Está bem. Qual é o jogo? 
 
@@ -258,26 +287,28 @@ def steal_statue(player):
     com milhares desses guerreiros de barro em tamanho real. 
 
     Você deve ir a um novo sítio de escavação onde recentemente 
-    descobriram mais guerreiros.
-    ''')
-    
-    sleep(1)
-    print(f'{player.name} vai para o sítio de escavação.')
+    descobriram mais guerreiros.''')
 
-    sleep(2)
     clear_screen()
+
+    print(f'''
+    {player.name} vai para o sítio de escavação.''')
+    sleep(3)
+
+    clear_screen()
+
     print_slow(f'''
     {player.name}: Minha arqui inimiga Tigresa decidiu aparecer. 
 
     Player: Por que a V.I.L.E. enviaria uma de suas agentes ?
 
-    {player.name}: Para me ajudar ou para me ferrar.
+    {player.name}: ~ Para me ajudar ou para me ferrar. Eu posso passar de fininho pela Tigresa
+    ou posso falar com a Tigresa e ver se ela entrega onde eles podem estar mantendo Zack e Ivy. ~
     ''')
+    sleep(2)
 
+    clear_screen()
     text = f'''  
-    {player.name}: Eu posso passar de fininho pela Tigresa ou posso falar com a Tigresa e ver se 
-    ela entrega onde eles podem estar mantendo Zack e Ivy.
-
     Passar de fininho ou bater um papinho? 
     Preciso decidir antes que ela me veja.
 
@@ -295,25 +326,53 @@ def steal_statue(player):
 
 
 def sneak_tigress(player):
-    sleep(0.5)
     clear_screen()
+
     print(f'''
     {player.name} passa de fininho por Tigresa e pula o 
     muro do sítio de escavação, mas encontra vários 
-    cães de guarda raivosos. ''')
-    print_slow(f'{player.name}: Quando não é gato, é cachorro… \n')
-    sleep(0.5)
+    cães de guarda raivosos.
+    ''')
+    sleep(4)
+
+    print_slow(f'''
+    ------------
+    Lute com os cachorros mas mantenha a restrição! Para escapar sem dar
+    de cara com a Tigresa, muita energia e sorte será necessária!
+
+    Energia: +{player.energy}
+    ------------
+    .....
+    ''')
+
+    if check_sucess(player.energy) == True:
+        print_slow(f'''
+    Você consegue escapar dos cães raivosos miraculosamente. Tigresa
+    não percebe sua entrada e você segue pelo túnel para o salão de
+    escavação dos guerreiros de terracota.
+        ''')
+        sleep(2)
+        return text_security_officer(player)
+
+    print_slow(f'''
+    {player.name}: Quando não é gato, é cachorro…
+    ''')
+
     print(f'''
     {player.name} foge e cai do lado de fora do sítio de escavação, 
     de frente para Tigresa. \n''')
+    sleep(3)
+
     print_slow(f'''
     Tigresa: Oh, aqueles cachorrinhos assustaram a valente {player.name}? 
     ''')
+    sleep(2)
     return chit_chat_tigress(player)
 
 
 def chit_chat_tigress(player):
-    sleep(0.5)
+    clear_screen()
+
     print_slow(f'''
     {player.name}: O que está fazendo aqui? 
 
@@ -326,42 +385,44 @@ def chit_chat_tigress(player):
     Tigresa: Aproveite enquanto pode.
 
     Player: Vermelha, achei um túnel na área de escavação. 
-    Deve levar direto para os guerreiros.
-    ''')
+    Deve levar direto para os guerreiros.''')
 
+    sleep(2)
     return tunnel_soldier(player)
 
 
 def tunnel_soldier(player):
-    sleep(0.5)
     clear_screen()
+
     print_slow(f'''
     {player.name}: Já que você está aqui. Por acaso saberia onde meus 
     amigos estão sendo mantidos? Eu gostaria de mandar um postal.
 
-    Tigresa: Até parece que eu ia contar. 
-    ''')
+    Tigresa: Até parece que eu ia contar.''')
 
-    sleep(0.5)
     print(f'''
     Tigresa ativa sem querer uma armadilha e tanto ela quanto {player.name} 
-    caem num buraco. {player.name} é mais rápida e escapa. Tigresa fica presa. 
-    ''')
+    caem num buraco. {player.name} é mais rápida e escapa. Tigresa fica presa.''')
+    sleep(3)
+
     print_slow(f'''
     {player.name}: Uau! Eu achei que gatos sempre caíssem em pé.
 
     Tigresa: Me ajuda a sair daqui. Agora!
-    ''')
+    
+    {player.name}: ~ Só dessa vez eu poderia ajudar a Tigresa. Ou, eu posso deixar que
+    ela se vire para sair. ~ ''')
+    sleep(2)
+
+    clear_screen()
     text = f''' 
-    {player.name}: Só dessa vez eu poderia ajudar a Tigresa. 
-    Ou, eu posso deixar que ela se vire para sair. 
     Enfim, é a gata aqui que está no comando agora.
 
     [1] Ajudar Tigresa
     [2] Deixar Tigresa se virar
 
     Sua escolha: '''
-    
+
     if check_input(text, [1, 2]) == 1:
         sleep(1)
         return help_tigress(player)
@@ -371,41 +432,67 @@ def tunnel_soldier(player):
 
 
 def help_tigress(player):
-    player.help_tigress = 1
+    clear_screen()
+    player.persuasion_op(+1)
+
     sleep(0.5)
     print(f'''
-    {player.name} joga a corda de sua tirolesa para Tigresa poder sair.
-    ''')
-    print_slow(f'{player.name}: Vou te ajudar só dessa vez.')
-    print('Lembrete: Tigresa vai se lembrar que você a ajudou a escapar.')
-    print_slow(f'''
-    Tigresa: Pera aí, o quê?
+    {player.name} joga a corda de sua tirolesa para Tigresa poder sair.''')
 
-    {player.name}: Eu sei que gatos gostam de linhas!
+    print_slow(f'''
+    {player.name}: Vou te ajudar só dessa vez.''')
+
+    print('''\n
+    Lembrete: Tigresa vai se lembrar que você a ajudou a escapar.\n''')
+
+    print_slow(f'''
+    Tigresa: Ok, ok, obrigada.
+
+    Tigresa acena, relutante. {player.name} se despede, se dirigindo a sua
+    missão.''')
+    sleep(2)
+
+    clear_screen()
+
+    print_slow(f'''
+    ------------
+    Parabéns! Sua atitude aumentou seus pontos de Persuasão.
+
+    Persuasão: +{player.persuasion} (+1)
+    ------------
+    ....
     ''')
-    return 
+    sleep(1)
+
+    player.help_tigress = 1
+    return text_security_officer(player)
 
 
 def leave_tigress(player):
-    sleep(0.5)
+    clear_screen()
     print_slow(f'''
-    {player.name}: Eu soube que gatos são excelentes escavadores.
-    ''')
-    print('Lembrete:Tigresa vai se lembrar que você não a ajudou a escapar.')
+    {player.name}: Eu soube que gatos são excelentes escavadores.''')
+
+    print('''\n
+    Lembrete: Tigresa vai se lembrar que você não a ajudou a escapar.\n''')
+
     print_slow(f'''
     Tigresa: Volta aqui! Tem insetos nesse buraco!
 
     {player.name}: Não estou te ouvindo! Estou num túnel. O sinal tá ruim…
     ''')
+    sleep(2)
     return text_security_officer(player)
 
+
 def text_security_officer(player):
-    sleep(0.5)
     clear_screen()
-    #Storytelling
+    # Storytelling
     print(f'''
     {player.name} chega no salão de escavação dos guerreiros de terracota e
-    faz uma chamada de vídeo para a Treinadora Brunt. ''')
+    faz uma chamada de vídeo para a Treinadora Brunt.''')
+    sleep(3)
+
     print_slow(f'''
     Treinadora Brunt: Espero que seja para falar de um assunto bom.
 
@@ -414,43 +501,45 @@ def text_security_officer(player):
     Treinadora Brunt: Ótimo! Estou esperando há horas nessa esteira! 
     Mostra tudo para eu escolher um bom!
     ''')
-    sleep(0.5)
-    print(f'{player.name} mostra os guerreiros para a vilã escolher.')
-    
-    sleep(0.5)
+
+    print(f'''
+    {player.name} mostra os guerreiros para a vilã escolher.''')
+    sleep(3)
+
     print_slow(f'''
-    reinadora Brunt: Aí! Esse aí!
-    Não, o de barba!
-    Não, o de bigode!
+    Treinadora Brunt: Aí! Esse aí! Não, o de barba! Não, o de bigode!
 
     {player.name}: Aceitei roubar pra você, Brunt. Não pra arrumar namorado.
 
     Treinadora Brunt: Tenho uma equipe de extração circulando na área. 
-    Vou dar o sinal para a ação.
-    ''')
+    Vou dar o sinal para a ação.''')
+    sleep(1)
+
     return security_officer(player)
 
+
 def security_officer(player):
-    sleep(0.5)
     clear_screen()
+
     print(f'''
     A equipe de extração começa a içar a estátua para dentro de um helicóptero quando {player.name} 
-    é vista por um segurança.
-    ''')
-    
-    sleep(0.5)
+    é vista por um segurança.''')
+
+    sleep(3)
     print_slow(f'''
     Segurança: Hey! Quem está aí?
 
     {player.name}: Player, me flagraram!
 
     Player: Temos que tirar você daí!
+
+    {player.name}: ~ Posso pular e pegar carona com a estátua ou me camuflar 
+    e me esconder com os guerreiros. ~
     ''')
+    sleep(3)
 
+    clear_screen()
     text = f'''
-    {player.name}: Posso pular e pegar carona com a estátua ou me camuflar 
-    e me esconder com os guerreiros.
-
     Pular ou camuflar?
 
     [1] Pegar carona com a estátua
@@ -467,19 +556,39 @@ def security_officer(player):
 
 
 def jump_statue(player):
-    sleep(0.5)
     clear_screen()
-    print(f'''
+    print_slow(f'''
     {player.name} pega carona com a estátua, mas os guardas conseguem pular e 
-    se pendurarem nas pernas de {player.name}. A estátua cai no telhado junto com 
-    os guardas e se quebra. {player.name} consegue fugir em seu planador. 
+    se pendurarem nas suas pernas!
+
+    ------------
+    Parece que você precisará de sorte para sair dessa sem quebrar a estátua.
+
+    Sorte: +{player.lucky}
+    ------------
+    ....
     ''')
-    sleep(0.5)
+
+    if check_sucess(player.lucky) == True:
+        print_slow(f'''
+    Por sorte, você consegue se livrar dos seguranças e se esconder
+    junto com a estátua!
+        ''')
+        sleep(3)
+        return hide_statue(player)
+
+    print_slow(f'''
+    A estátua cai no telhado junto com os guardas e se quebra.
+    {player.name} consegue fugir em seu planador. 
+    ''')
+    sleep(3)
+
+    clear_screen()
     print(f'''
     {player.name} recebe uma chamada de vídeo.
     ''')
-    
-    sleep(0.5)
+    sleep(2)
+
     print_slow(f'''
     Treinadora Brunt: Vejo que o meu noivo por encomenda não conseguiu 
     chegar até mim inteiro.
@@ -487,60 +596,71 @@ def jump_statue(player):
     {player.name}: Eu pego outro!
 
     Treinadora Brunt: Infelizmente não, filhinha. Então, vamos decidir os 
-    codinomes para os nossos novos agentes? Eu gosto de Tico e Teco! 
+    codinomes para os nossos novos agentes? Eu gosto de Tico e Teco!
+    ''')
 
+    clear_screen()
+    print_slow(f'''
+    ------------
+    Opa! Hora de utilizar seus dotes para convencer a Treinadora a não 
+    limpar a mente dos seus amigos!
+
+    Persuasão: +{player.persuasion}
+    ------------
+    ''')
+
+    if check_sucess(player.persuasion) == True:
+        print_slow(f'''
+    {player.name}: Não toque neles! Quero uma segunda chance!
+
+    Treinadora Brunt conversa com Dra. Bellum, aborrecida com
+    o ocorrido.
+
+    Dra. Bellum: Apenas mais uma segunda chance. Parece que tem sido
+    dias de sorte para você {player.name}. A Treinadora está deveras
+    compassiva! Faça uma chamada conosco assim que a poeira baixar.''')
+
+        sleep(1)
+        return choose_act_two(player)
+
+    else:
+        print_slow(f''')
     {player.name}: Não toque neles! Quero uma segunda chance!
 
     Treinadora Brunt: Hey, Dra! Hora de carregar o seu… 
     Como se chama mesmo essa coisa? 
 
-    Dra. Bellum: Ele foi rebatizado: O DERRETE MENTES!
+    Dra. Bellum: Ele foi rebatizado: O DERRETE MENTES!''')
 
-    sleep(0.5)
-    print(f'Zack e Ivy têm as mentes apagadas. {player.name} perdeu.''')
-
-    sleep(0.5)
-    print_slow(f'''
-    Narradora: Eu vejo duas coisas que eu preferia não estar vendo. 
-    Uma queda em voo e uma equipe com a memória apagada. 
-    Quer um final melhor? Vou te enviar de volta em campo 
-    para que possa consertar isso. 
-    ''')
-    
-    sleep(0.5)
-    print('''
-    Você irá retornar para a última escolha e poderá
-    tentar um caminho diferente''')
-    sleep(2)
-    return security_officer(player) #Used to be Bad Ending 2
+        sleep(1)
+        return endings.bad_ending_2()
 
 
 def hide_statue(player):
-    sleep(0.5)
     clear_screen()
     print(f'''
     A estátua é carregada pela equipe de extração. 
     {player.name} está camuflada entre os guerreiros 
     e os seguranças não a encontram. 
     ''')
-    #Storytelling
+    sleep(3)
+    # Storytelling
     print_slow(f'''
     Segurança: O ladrão fugiu! Vamos! ''')
-
     sleep(1)
+
     return choose_act_two(player)
 
 
 def choose_act_two(player):
-    sleep(1)
     clear_screen()
-    #Storytelling
+    # Storytelling
     print(f'''
     Após a missão em Xangai, {player.name} faz uma chamada de vídeo 
     com as líderes da V.I.L.E.
     ''')
-    
-    sleep(0.5)
+    sleep(3)
+
     print_slow('''
     Condessa Cleo: Então, eu e a Dra Bellum chegamos a um acordo sobre a 
     sua próxima missão. Você que escolhe.

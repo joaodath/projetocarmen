@@ -1,18 +1,26 @@
-from modules.extras import print_slow, check_input
+from modules.extras import print_slow, check_input, clear_screen
 from time import sleep
 
-#Bad Endings 01 and 02 are now deprecated. Maintaing only during building.
-#The entire Endings package must be deprecated.
-#Scheduled to be removed on first release
+# Bad Endings 01 and 02 are now deprecated. Maintaing only during building.
+# The entire Endings package must be deprecated.
+# Scheduled to be removed on first release
+
+
 def bad_ending_1():
+    clear_screen()
     print_slow('''
-    Final ruim 01: Ela tenta resgatar a equipe imediatamente mas a van está vazia. O jogo termina
+                                        GAME OVER: VOCÊ PERDEU
+            Você tentou resgatar seus amigos imediatamente. Apesar da intenção ser boa, não foi
+            a melhor escolha no momento. A mente de Zack e Ivy é apagada e você perde a missão.
     ''')
 
 
 def bad_ending_2():
+    clear_screen()
     print_slow('''
-    Final Ruim 02: Pular e pegar carona com a estátua faz ela cair. Fim do jogo.
+                                        GAME OVER: VOCÊ PERDEU
+            Falhar na missão optando por uma atitude mais valente custou bem caro,.Apesar da intenção
+            ser boa, não foi a melhor escolha no momento. A mente de Zack e Ivy é apagada e você o jogo.
     ''')
 
 
