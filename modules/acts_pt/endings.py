@@ -50,5 +50,5 @@ def good_ending_1():
     print_slow('''
                                             GAME OVER: VOCÊ GANHOU
             Você optou por salvar seus amigos no melhor momento, e isso lhe garantiu uma vitória para casa.
-            Zac e Ivy são salvos pacificamente por meio de sua aventura no Círculo Artigo. Parabéns!!
+            Zac e Ivy são salvos pacificamente por meio de sua aventura no Círculo Ártico. Parabéns!!
     ''')
