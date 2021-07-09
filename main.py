@@ -42,6 +42,10 @@ if __name__ == '__main__':
     Let\'s start our game! \n ''')
         sleep(1)
         player = Character(language=1)
+        player.create_character()
+        clear_screen()
+        player.define_atributes_en()
+        sleep(3)
         act_1.start(player)
 
     else:

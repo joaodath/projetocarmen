@@ -34,17 +34,18 @@ class Character():
         else:
             text = '''
     Your character name is Carmen Sandiego.
-    Você quer alterar o nome da sua personagem?
+    Do you want to change the character name?
 
-    [1] Sim
-    [2] Não
+    [1] Yes
+    [2] No
 
-    Digite sua opção: '''
+    Inform your choice: '''
 
             if check_input(text, [1, 2]) == 1:
                 self.__name = input(
                     '''
-    Por favor, digite o nome da sua personagem: ''').strip().title()
+    Please, inform the character name: ''').strip().title()
+
 
     @property
     def name(self):
@@ -130,6 +131,53 @@ class Character():
     Energia      : {self.energy}
                 ''')
                 break
+    
+
+    def define_atributes_en(self):
+        print('''
+    During the game, you will guide the character in choices that will affect
+    the final result of the match. These choices will take in consideration
+    three specific attributes:
+    
+    - Persuasion (0-9)
+    - Luck    (0-9)
+    - Energy   (0-9)
+    
+    You have 9 points available to distribute between those attributes.
+    Inform how many points will be given to each attribute below. \n\n
+    ''')
+
+        while True:
+            points = 9
+            p = int(input(f'''
+    Persuasion    ({points} points available): '''))
+            points -= p
+            s = int(input(f'''
+    Lucky         ({points} points available): '''))
+            points -= s
+            e = int(input(f'''
+    Energy       ({points} points available): '''))
+            points -= e
+            print('\n\n')
+
+            if (p + s + e) != 9:
+                print(f'''
+    Ops! It looks like the values informed are not valid.
+    Try again!
+                ''')
+            else:
+                self.persuasion = p
+                self.lucky = s
+                self.energy = e
+
+                print(f'''
+    Values saved successfully. Your character has:
+    Persuasion   : {self.persuasion}
+    Luck         : {self.lucky}
+    Energy       : {self.energy}
+                ''')
+                break
+
 
     @property
     def help_tigress(self):

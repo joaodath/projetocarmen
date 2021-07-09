@@ -721,8 +721,8 @@ def choose_act_two(player):
     if check_input(text, [1, 2]) == 1:
         from modules.acts_en import act_2_m1
         sleep(3)
-        return act_2_m1.start(player)
+        return act_2_m1.start_m1(player)
     else:
         from modules.acts_en import act_2_m2
         sleep(3)
-        return act_2_m2.start(player)
+        return act_2_m2.start_m2(player)
