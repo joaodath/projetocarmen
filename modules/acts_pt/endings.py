@@ -11,7 +11,7 @@ def bad_ending_1():
     print_slow('''
                                         GAME OVER: VOCÊ PERDEU
             Você tentou resgatar seus amigos imediatamente. Apesar da intenção ser boa, não foi
-            a melhor escolha no momento. A mente de Zack e Ivy é apagada e você perde a missão.
+            a melhor escolha no momento. As mentes de Zack e Ivy é apagada e você perde a missão.
     ''')
 
 
