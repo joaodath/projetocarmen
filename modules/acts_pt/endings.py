@@ -19,7 +19,7 @@ def bad_ending_2():
     clear_screen()
     print_slow('''
                                         GAME OVER: VOCÊ PERDEU
-            Falhar na missão optando por uma atitude mais valente custou bem caro,.Apesar da intenção
+            Falhar na missão optando por uma atitude mais valente custou bem caro. Apesar da intenção
             ser boa, não foi a melhor escolha no momento. A mente de Zack e Ivy é apagada e você o jogo.
     ''')
 
