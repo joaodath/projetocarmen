@@ -5,6 +5,12 @@ from time import sleep
 #Starts the game from act 01
 def start(player):
     clear_screen()
+    import pygame
+    pygame.init()
+    pygame.font.init()
+    pygame.mixer.init()
+    pygame.mixer.music.load('modules/audio/audio1.ogg')
+    pygame.mixer.music.play(-1)
     #Storytelling
     print_slow(f'''
     Player: Xangai´s skyline sports several of the world´s tallest skyscrapers, 

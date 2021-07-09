@@ -4,15 +4,23 @@
 from modules.classes.character import Character
 from modules.extras import print_slow, check_input, clear_screen
 from time import sleep
+import pygame
 
 if __name__ == '__main__':
+    pygame.init()
+    pygame.font.init()
+    pygame.mixer.init()
+    pygame.mixer.music.load('modules/audio/themesong.ogg')
+    pygame.mixer.music.play(-1)
     clear_screen()
     print_slow('''
     
-    Welcome to "Carmen Sandiego: to steal or not to steal"! We're starting the game soon!
+    Welcome to "Carmen Sandiego: to steal or not to steal"! 
+    We're starting the game soon!
     First, we need to know your language preference.
     
-    Bem vinde a "Carmen Sandiego: roubar ou não, eis a questão". Vamos começar o jogo já, já!
+    Bem vinde a "Carmen Sandiego: roubar ou não, eis a questão". 
+    Vamos começar o jogo já, já!
     Primeiro, precisamos saber seu idioma de preferência. 
     
     ''')

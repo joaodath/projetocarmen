@@ -5,6 +5,12 @@ from time import sleep
 
 def start(player):
     clear_screen()
+    import pygame
+    pygame.init()
+    pygame.font.init()
+    pygame.mixer.init()
+    pygame.mixer.music.load('modules/audio/audio1.ogg')
+    pygame.mixer.music.play(-1)
     # Storytelling
     print_slow(f'''
     Player: O panorama de Xangai é composto por vários dos maiores 

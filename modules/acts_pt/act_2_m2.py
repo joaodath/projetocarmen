@@ -7,6 +7,12 @@ from time import sleep
 
 def start_m2(player):
     player.missions_up(1)
+    import pygame
+    pygame.init()
+    pygame.font.init()
+    pygame.mixer.init()
+    pygame.mixer.music.load('modules/audio/audio3.ogg')
+    pygame.mixer.music.play(-1)
     return in_the_lab(player)
 
 

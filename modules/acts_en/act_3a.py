@@ -6,6 +6,12 @@ from time import sleep
 
 
 def start_3a(player):
+    import pygame
+    pygame.init()
+    pygame.font.init()
+    pygame.mixer.init()
+    pygame.mixer.music.load('modules/audio/audio4.ogg')
+    pygame.mixer.music.play(-1)
     print(f'''
     {player.name} is on a plane flying to a hiding spot of V.I.L.E in
     the Arctic Cicle. She starts a video call with the villains.''')

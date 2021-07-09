@@ -5,6 +5,12 @@ from time import sleep
 #Starts Act 02 from Mission 02
 def start_m2(player):
     clear_screen()
+    import pygame
+    pygame.init()
+    pygame.font.init()
+    pygame.mixer.init()
+    pygame.mixer.music.load('modules/audio/audio3.ogg')
+    pygame.mixer.music.play(-1)
     return in_the_lab(player)
 
 

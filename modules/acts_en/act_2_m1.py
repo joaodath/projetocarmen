@@ -94,6 +94,12 @@ def refuse_dance(player):
 
 def steel_caviare(player):
     clear_screen()
+    import pygame
+    pygame.init()
+    pygame.font.init()
+    pygame.mixer.init()
+    pygame.mixer.music.load('modules/audio/audio2.ogg')
+    pygame.mixer.music.play(-1)
     #Storytelling
     print(f'''
     {player.nome} observe two waiters going to the kitchen ''')

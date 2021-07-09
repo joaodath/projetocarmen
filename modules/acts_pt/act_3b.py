@@ -3,6 +3,12 @@ from modules.extras import print_slow, clear_screen
 from time import sleep
 
 def start_3b(player):
+    import pygame
+    pygame.init()
+    pygame.font.init()
+    pygame.mixer.init()
+    pygame.mixer.music.load('modules/audio/audio5.ogg')
+    pygame.mixer.music.play(-1)
     print(f'''
     {player.name} está no aeroporto e recebe uma chamada de vídeo da V.I.L.E.
     ''')
