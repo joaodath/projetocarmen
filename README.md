@@ -1,5 +1,6 @@
 # Projeto Carmen - Choose your own adventure
 [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/joaodath/projetocarmen)
+
 **Projeto de Conclusão do Módulo 1 - Blue EdTech**
 This project was created as a final exam for the programming course
 at Blue EdTech. Projeto Carmen is a choose-your-own-adventure type
@@ -38,7 +39,9 @@ $ sudo apt-get update
 $ sudo apt-get install python3.9
 ```
 
-### Cloning or downloading the repository
+### Running this repository
+
+#### Cloning or downloading the repository
 Assuming you already have Git installed on your machine, you can clone this 
 repository using the code below.
 ```
@@ -48,13 +51,17 @@ You can also download this project using the green button at the top that says
 'Code' and then clicking on 'Download ZIP'. Unzip the files and open the entire
 folder using your preferred IDE.
 
-### Running using VSCode Remote Repository Extension
+#### Running using VSCode Remote Repository Extension
 Alternatively, you can run this repository using VSCode's Remote Repository
 extension [clicking here](https://open.vscode.dev/joaodath/projetocarmen) or using the shield below.
+
 [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/joaodath/projetocarmen)
 
 
-##
+
+
+#### Running directly from terminal
+* On Ubuntu, navigate to the folder 
 
 
 
