@@ -218,8 +218,8 @@ def steel_again(player):
     if player.missions_count == 2:
         clear_screen()
         print_slow(f'''
-    All missions have already been completed. Proceeding to the Redemption of
-    your friends...
+    All missions have been cleared. 
+    Proceding to rescue of the team now...
 
         ''')
         sleep(5)
