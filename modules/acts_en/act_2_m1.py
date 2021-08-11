@@ -233,7 +233,7 @@ def steel_caviare(player):
     Do I disguise and hide the caviar or steal and run?
     
     [1] Disguise and Capture
-     [2] Steal and Run
+    [2] Steal and Run
     
      Your choice: '''
 
@@ -242,10 +242,10 @@ def steel_caviare(player):
 
         print_slow(f'''
     ------------
-   Good choice! However, you'll need luck for the cover to be a
+    Good choice! However, you'll need luck for the cover to be a
     according to plan.
 
-    Sorte: +{player.lucky}
+    Luck: +{player.lucky}
     ------------
     ....
         ''')
@@ -309,7 +309,7 @@ def hide(player):
     Time to test your limits!
     You will try to convince Countess Cleo to save her friends.
     
-     Persuasão: +{player.persuasion}
+    Persuasion: +{player.persuasion}
     ------------
     .....
     ''')
@@ -335,12 +335,14 @@ def hide(player):
         clear_screen()
         print(f'''
     {player.name} begs for a new opportunity.
+    ''')
+        print_slow(f'''
+    {player.name}: Please, give me another chance! I promise I'll do my best 
+    to try and be discrete. After all, I'm your best option. 
 
-    {player.name}: Por favor, me dê uma nova oportunidade! Prometo que darei
-    meu máximo em ser discreta. Afinal, sou a melhor opção que vocês possuem.
-
-    Condessa Cleo: Não mesmo! Apenas uma tola confiaria em uma ladra. 
-    Continuem o procedimento!
+    Countess Cleo: Not in a million years! Only a fool would trust the words
+    of a thief.
+    Continue with the wipe out!
         ''')
         sleep(2)
         endings.bad_ending_5()
@@ -412,14 +414,13 @@ def steel_again(player):
     Searching for V.I.L.E hideouts in the Arctic Circle.
     I found a. What do you want to do?
 
-    {player.name}: ~ Can I try to rescue my team now or I can steal
-    for the I.L.E. one last time. A new mission can be risky,
-    but it can also be a chance to keep up appearances until you get
-    recover the team. ~
+    {player.name}: ~ I can try to rescue my team now or I can steal
+    for the V.I.L.E. one last time. A new mission can be risky,
+    but it can also be a chance to keep up the appearances until I recover 
+    the team. ~
     ''')
     sleep(3)
 
-    clear_screen()
     text = f'''
     Do I start a risky rescue mission, or robbery for the last time?
 
@@ -436,8 +437,8 @@ def steel_again(player):
         if player.missions_count() == 2:
             clear_screen()
             print_slow(f'''
-            Todas as missões já foram realizadas. Prosseguindo para o Resgate de
-            seus amigos...
+            All missions have been cleared. 
+            Proceding to rescue of the team now...
 
             ''')
             from modules.acts_pt import act_3a

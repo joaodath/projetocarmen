@@ -258,11 +258,11 @@ def rescue_team_vile_vault(player):
     clear_screen()
     print_slow(f'''
     ------------
-    Carambas, isso não é bom! A situação agora é irreversível. 
-    Entretanto, como último recurso, você utilizará sua persuasão para 
-    convencer a Treinadora Brunt a não apagar a memória dos seus amigos.
+    Wow, that's not good at all! The situation now is irreversible.
+    However, as a last resource, you'll use your persuasion to try and convince
+    Coach Brunt not to wipe out your friends memories. 
 
-    Persuasão: +{player.persuasion}
+    Persuasion: +{player.persuasion}
     ------------
     ....''')
 
@@ -636,10 +636,7 @@ def jump_statue(player):
     clear_screen()
     print_slow(f'''
     ------------
-    Opa! Hora de utilizar seus dotes para convencer a Treinadora a não 
-    limpar a mente dos seus amigos!
-
-    Wow. Time to use your powers to convince Coach Brunt to not wipe out 
+    Wow! Time to use your powers to convince Coach Brunt to not wipe out 
     your friends' minds.
 
     Persuasion: +{player.persuasion}
@@ -649,9 +646,6 @@ def jump_statue(player):
     if check_sucess(player.persuasion) == True:
         print_slow(f'''
     {player.name}: Don't touch them! I want a second chance!
-
-    Treinadora Brunt conversa com Dr. Bellum, aborrecida com
-    o ocorrido.
 
     Coach Brunt talks with Dr. Bellum about the failed mission.
 
